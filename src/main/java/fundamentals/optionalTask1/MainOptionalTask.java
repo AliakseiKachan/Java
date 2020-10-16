@@ -95,12 +95,12 @@ public class MainOptionalTask {
         double average = 0;
         int sum = 0;
         int count = 0;
-        int x;
+        int number;
 
         for(int i = 0; i < arrayOfNumbers.length; i++) {
-            x = arrayOfNumbers[i];
-            while ( x > 0) {
-                x /= 10;
+            number = arrayOfNumbers[i];
+            while ( number > 0) {
+                number /= 10;
                 count++;
             }
             temp[i] += count;

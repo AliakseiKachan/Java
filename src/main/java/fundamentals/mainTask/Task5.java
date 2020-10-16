@@ -19,7 +19,7 @@ public class Task5 {
 
     }
 
-    static void setMonth (int x) {
+    private static void setMonth (int x) {
         String[] month = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
         String nameOfMonth;
 
@@ -27,7 +27,7 @@ public class Task5 {
             nameOfMonth = month[x-1];
             System.out.println("This is " + nameOfMonth + ".");
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Wrong number of month!");
+            System.out.println("Wrong number of month! " + e.getMessage());
         }
 
     }

@@ -62,7 +62,7 @@ public class MainOptionalTask {
         findNumbers(arrayOfNumbers);
     }
 
-    public int maxNumber (int[] arr) {
+    private static int maxNumber (int[] arr) {
 
         int max = arr[0];
 
@@ -76,7 +76,7 @@ public class MainOptionalTask {
         return max;
     }
 
-    public int minNumber (int[] arr) {
+    private static int minNumber (int[] arr) {
 
         int min = arr[0];
 
@@ -90,7 +90,7 @@ public class MainOptionalTask {
         return min;
     }
 
-    public static void biggerSmallerThanAverage(int[] arrayOfNumbers, int quantity, int[] temp) {
+    private static void biggerSmallerThanAverage(int[] arrayOfNumbers, int quantity, int[] temp) {
 
         double average = 0;
         int sum = 0;
@@ -133,7 +133,7 @@ public class MainOptionalTask {
         }
     }
 
-    public static void findNumbers(int[] array) {
+    private static void findNumbers(int[] array) {
 
         int countEvenDigits = 0;
         int countOddDigits = 0;

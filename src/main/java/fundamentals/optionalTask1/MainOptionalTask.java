@@ -30,12 +30,10 @@ public class MainOptionalTask {
 
         System.out.println("Your values: " + Arrays.toString(arrayOfNumbers));
 
-        MainOptionalTask minMax = new MainOptionalTask();
-
         System.out.println("\nTask 1");
 
-        String maxLen = Integer.toString(minMax.maxNumber(arrayOfNumbers));
-        String minLen = Integer.toString(minMax.minNumber(arrayOfNumbers));
+        String maxLen = Integer.toString(MainOptionalTask.maxNumber(arrayOfNumbers));
+        String minLen = Integer.toString(MainOptionalTask.minNumber(arrayOfNumbers));
         System.out.println("The length of max number is: " + maxLen.length());
         System.out.println("The length of min number is: " + minLen.length());
 

@@ -12,8 +12,6 @@ public class Task3 {
 
         Scanner input = new Scanner(System.in);
 
-        Task3 task3 = new Task3();
-
         int startPosition = 0; // Начальное значение диапазона
         int endPosition = 0; // Конечное значение диапазона
         int countOfNumbers = 0; // Количество  генерируемых случайных чисел
@@ -21,15 +19,15 @@ public class Task3 {
 
         do {
             System.out.println("Input start position of range:");
-            task3.checkInputValues(input, startPosition);
+            Task3.checkInputValues(input, startPosition);
             startPosition = input.nextInt();
 
             System.out.println("Input end position of range:");
-            task3.checkInputValues(input, endPosition);
+            Task3.checkInputValues(input, endPosition);
             endPosition = input.nextInt();
 
             System.out.println("Input count of numbers:");
-            task3.checkInputValues(input, countOfNumbers);
+            Task3.checkInputValues(input, countOfNumbers);
             countOfNumbers = input.nextInt();
 
             for (int i = 0; i < countOfNumbers; i++) {
@@ -59,7 +57,7 @@ public class Task3 {
         } while ("y".equals(answer));
     }
 
-    private void checkInputValues (Scanner input, int checkValue) {
+    private static void checkInputValues (Scanner input, int checkValue) {
 
         int count = 4;
 

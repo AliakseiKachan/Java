@@ -8,7 +8,13 @@ import java.util.stream.Collectors;
 
 public class OutputInformation {
 
-    public void allCars(List<Car> carList) {
+    List<Car> carList;
+
+    public OutputInformation(List<Car> carList) {
+        this.carList = carList;
+    }
+
+    public void allCars() {
 
         System.out.println("There is a list of all cars in database: \n");
 
@@ -16,7 +22,7 @@ public class OutputInformation {
         System.out.println();
     }
 
-    public void CarsByCarBrand(List<Car> carList, CarBrand carBrand) {
+    public void CarsByCarBrand(CarBrand carBrand) {
 
         System.out.println("There is a list of cars of " + CarBrand.HYUNDAI + " brand: \n");
 
@@ -24,7 +30,7 @@ public class OutputInformation {
         System.out.println();
     }
 
-    public void CarsByCarModelAndUsedMoreNYears(List<Car> carList, String carModel, int valueYearsOfUse) {
+    public void CarsByCarModelAndUsedMoreNYears(String carModel, int valueYearsOfUse) {
 
         System.out.println("There is a list of " + carModel + " model that have been is use for more than " + valueYearsOfUse + " years: \n");
 
@@ -32,7 +38,7 @@ public class OutputInformation {
         System.out.println();
     }
 
-    public void CarsByYearOfProductionAndCarPrice(List<Car> carList, int yearOfProduction, int carPrice) {
+    public void CarsByYearOfProductionAndCarPrice(int yearOfProduction, int carPrice) {
 
         System.out.println("There is a list of cars of a " + yearOfProduction + " year of production, the price of which is higher than " + carPrice + " $: \n");
 

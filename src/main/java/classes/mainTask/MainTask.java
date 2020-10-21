@@ -23,14 +23,14 @@ public class MainTask {
     public static void main(String[] args) {
 
         DatabaseOfCars databaseOfCars = new DatabaseOfCars();
-        OutputInformation outputInformation = new OutputInformation();
+        OutputInformation outputInformation = new OutputInformation(databaseOfCars.createDatabaseOfCars());
 
-        outputInformation.allCars(databaseOfCars.createDatabaseOfCars());
+        outputInformation.allCars();
 
-        outputInformation.CarsByCarBrand(databaseOfCars.createDatabaseOfCars(), CarBrand.HYUNDAI);
+        outputInformation.CarsByCarBrand(CarBrand.HYUNDAI);
 
-        outputInformation.CarsByCarModelAndUsedMoreNYears(databaseOfCars.createDatabaseOfCars(), "PASSAT", 7);
+        outputInformation.CarsByCarModelAndUsedMoreNYears("PASSAT", 7);
 
-        outputInformation.CarsByYearOfProductionAndCarPrice(databaseOfCars.createDatabaseOfCars(), 2009, 3000);
+        outputInformation.CarsByYearOfProductionAndCarPrice(2009, 3000);
     }
 }

@@ -1,4 +1,4 @@
-package classes.mainTask;
+package classes.mainTask.enums;
 
 public enum CarBrand {
 

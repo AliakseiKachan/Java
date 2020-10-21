@@ -1,4 +1,7 @@
-package classes.mainTask;
+package classes.mainTask.bean;
+
+import classes.mainTask.enums.CarBrand;
+import classes.mainTask.enums.CarColor;
 
 public class Car {
 
@@ -26,12 +29,40 @@ public class Car {
         this.regNumber = regNumber;
     }
 
+    public String getIdVinNumber() {
+        return idVinNumber;
+    }
+
+    public void setIdVinNumber(String idVinNumber) {
+        this.idVinNumber = idVinNumber;
+    }
+
+    public CarBrand getCarBrand() {
+        return carBrand;
+    }
+
+    public void setCarBrand(CarBrand carBrand) {
+        this.carBrand = carBrand;
+    }
+
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
+
     public int getYearOfProduction() {
         return yearOfProduction;
     }
 
     public void setYearOfProduction(int yearOfProduction) {
         this.yearOfProduction = yearOfProduction;
+    }
+
+    public CarColor getCarColor() {
+        return carColor;
     }
 
     public void setCarColor(CarColor carColor) {
@@ -46,16 +77,12 @@ public class Car {
         this.carPrice = carPrice;
     }
 
+    public String getRegNumber() {
+        return regNumber;
+    }
+
     public void setRegNumber(String regNumber) {
         this.regNumber = regNumber;
-    }
-
-    public CarBrand getCarBrand() {
-        return carBrand;
-    }
-
-    public String getCarModel() {
-        return carModel;
     }
 
     @Override

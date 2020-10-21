@@ -1,29 +1,36 @@
 package classes.mainTask;
 
+import classes.mainTask.database.DatabaseOfCars;
+import classes.mainTask.enums.CarBrand;
+import classes.mainTask.output.OutputInformation;
+
 /**
- *      Создать классы, спецификации которых приведены ниже.
- *      Определить конструкторы и методы setТип(), getТип(), toString().
- *      Определить дополнительно методы в классе, создающем массив объектов.
- *      Задать критерий выбора данных и вывести эти данные на консоль.
- *      В каждом классе, обладающем информацией, должно быть объявлено несколько конструкторов.
+ *      Create classes, the specifications of which are given below.
+ *      Define constructors and methods setType (), getType (), toString ().
+ *      Define additional methods in the class that creates an array of objects.
+ *      Set the criteria for selecting data and display this data on the console.
+ *      Each class with information must declare several constructors.
  *
- *      8. Car: id, Марка, Модель, Год выпуска, Цвет, Цена, Регистрационный номер.
- *      Создать массив объектов. Вывести:
- *      a) список автомобилей заданной марки;
- *      b) список автомобилей заданной модели, которые эксплуатируются больше n лет;
- *      c) список автомобилей заданного года выпуска, цена которых больше указанной.
+ *      8. Car: id, Brand, Model, Year of manufacture, Color, Price, Registration number.
+ *      Create an array of objects. Output:
+ *      a) a list of cars of a given brand;
+ *      b) a list of cars of a given model that have been in use for more than n years;
+ *      c) a list of cars of a given year of manufacture, the price of which is higher than the indicated one.
  */
 
 public class MainTask {
 
     public static void main(String[] args) {
 
-        System.out.println("There is a list of all cars in database: \n\n" + DatabaseOfCars.createDatabaseOfCars().toString());
+        DatabaseOfCars databaseOfCars = new DatabaseOfCars();
+        OutputInformation outputInformation = new OutputInformation();
 
-        OutputInformation.getCarsByCarBrand(DatabaseOfCars.createDatabaseOfCars(), CarBrand.HYUNDAI);
+        outputInformation.allCars(databaseOfCars.createDatabaseOfCars());
 
-        OutputInformation.getCarsByCarModelAndUsedMoreNYears(DatabaseOfCars.createDatabaseOfCars(), "PASSAT", 7);
+        outputInformation.CarsByCarBrand(databaseOfCars.createDatabaseOfCars(), CarBrand.HYUNDAI);
 
-        OutputInformation.getCarsByYearOfProductionAndCarPrice(DatabaseOfCars.createDatabaseOfCars(), 2009, 3000);
+        outputInformation.CarsByCarModelAndUsedMoreNYears(databaseOfCars.createDatabaseOfCars(), "PASSAT", 7);
+
+        outputInformation.CarsByYearOfProductionAndCarPrice(databaseOfCars.createDatabaseOfCars(), 2009, 3000);
     }
 }

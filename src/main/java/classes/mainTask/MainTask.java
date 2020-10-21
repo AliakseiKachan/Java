@@ -27,10 +27,10 @@ public class MainTask {
 
         outputInformation.allCars();
 
-        outputInformation.CarsByCarBrand(CarBrand.HYUNDAI);
+        outputInformation.carsByCarBrand(CarBrand.HYUNDAI);
 
-        outputInformation.CarsByCarModelAndUsedMoreNYears("PASSAT", 7);
+        outputInformation.carsByCarModelAndUsedMoreNYears("PASSAT", 7);
 
-        outputInformation.CarsByYearOfProductionAndCarPrice(2009, 3000);
+        outputInformation.carsByYearOfProductionAndCarPrice(2009, 3000);
     }
 }

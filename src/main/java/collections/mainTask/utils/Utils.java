@@ -1,15 +1,15 @@
-package collections.mainTask.output;
+package collections.mainTask.utils;
 
 import collections.mainTask.bean.Car;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class OutputMethods {
+public class Utils {
 
     private List<Car> taxiStationList;
 
-    public OutputMethods(List<Car> taxiStationList) {
+    public Utils(List<Car> taxiStationList) {
         this.taxiStationList = taxiStationList;
     }
 
@@ -45,5 +45,13 @@ public class OutputMethods {
 
         taxiStationList.stream().filter(car -> car.getMaxSpeed() > startOfRange && car.getMaxSpeed() < endOfRange)
                 .collect(Collectors.toList()).forEach(System.out::print);
+        System.out.println();
+    }
+
+    public void sortedCarsByHavingRailsOnRoof() {
+
+        System.out.println("There is a list of cars with rails on roof:\n");
+
+        taxiStationList.stream().filter(Car::areThereRoofRails).collect(Collectors.toList()).forEach(System.out::print);
     }
 }

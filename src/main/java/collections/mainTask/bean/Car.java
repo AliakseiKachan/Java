@@ -17,7 +17,7 @@ public abstract class Car {
     private int countOfDoors;
 
     public Car(CarClass carClass, CarBrand carBrand, String carModel, CarColor carColor, int yearOfProduction,
-               int maxSpeed, double fuelConsumption, double carPrice) {
+               int maxSpeed, double fuelConsumption, double carPrice, int countOfDoors) {
         this.carClass = carClass;
         this.carBrand = carBrand;
         this.carModel = carModel;
@@ -26,9 +26,20 @@ public abstract class Car {
         this.maxSpeed = maxSpeed;
         this.fuelConsumption = fuelConsumption;
         this.carPrice = carPrice;
+        this.countOfDoors = countOfDoors;
     }
 
-    public abstract int getCountOfDoors();
+    public abstract boolean areThereRoofRails();
+
+    public abstract boolean isItPossibleToTransportOversizedCargo();
+
+    public abstract boolean areTheFrontSeatsQuickFolding();
+
+    public abstract boolean isTheLuggageCompartmentSeparatedFromTheSalon();
+
+    public int getCountOfDoors() {
+        return countOfDoors;
+    }
 
     public void setCountOfDoors(int countOfDoors) {
         this.countOfDoors = countOfDoors;
@@ -110,6 +121,10 @@ public abstract class Car {
         sb.append(", maxSpeed=").append(maxSpeed).append(" km/h");
         sb.append(", fuelConsumption=").append(fuelConsumption).append(" l/100km");
         sb.append(", carPrice=").append(carPrice).append(" $");
+        sb.append(", roofRails=").append(areThereRoofRails());
+        sb.append(", transportOversizedCargo=").append(isItPossibleToTransportOversizedCargo());
+        sb.append(", quickFoldingFrontSeats=").append(areTheFrontSeatsQuickFolding());
+        sb.append(", luggageCompartmentSeparatedFromTheSalon=").append(isTheLuggageCompartmentSeparatedFromTheSalon());
         sb.append("\n");
         return sb.toString();
     }

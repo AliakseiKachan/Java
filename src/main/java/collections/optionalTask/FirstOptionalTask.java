@@ -17,9 +17,9 @@ public class FirstOptionalTask {
         Stack<String> stack = new Stack<>();
 
         try (Scanner scanner = new Scanner
-                (new File("C:/Java/src/main/java/collections/optionalTask/input.txt"));
+                (new File("C:/Java/src/main/resources/input.txt"));
              FileWriter writer = new FileWriter
-                     (new File("C:/Java/src/main/java/collections/optionalTask/output.txt"))
+                     (new File("C:/Java/src/main/resources/output.txt"))
             ) {
 
             while (scanner.hasNextLine()) {

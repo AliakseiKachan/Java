@@ -1,6 +1,6 @@
 package collections.mainTask;
 
-import collections.mainTask.output.OutputMethods;
+import collections.mainTask.utils.Utils;
 import collections.mainTask.database.TaxiStation;
 
 /**
@@ -25,11 +25,12 @@ public class Main {
     public static void main(String[] args) {
 
         TaxiStation taxiStation = new TaxiStation();
-        OutputMethods outputMethods = new OutputMethods(taxiStation.createDatabaseOfTaxiStation());
+        Utils utils = new Utils(taxiStation.createDatabaseOfTaxiStation());
 
-        outputMethods.allTaxiStationCars();
-        outputMethods.costOfTaxiStationCars();
-        outputMethods.allCarsSortedByFuelConsumption();
-        outputMethods.findCarsByRangeOfSpeed(250, 300);
+        utils.allTaxiStationCars();
+        utils.costOfTaxiStationCars();
+        utils.allCarsSortedByFuelConsumption();
+        utils.findCarsByRangeOfSpeed(250, 300);
+        utils.sortedCarsByHavingRailsOnRoof();
     }
 }

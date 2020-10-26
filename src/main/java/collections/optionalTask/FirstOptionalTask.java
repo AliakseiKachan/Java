@@ -26,13 +26,12 @@ public class FirstOptionalTask {
                 stack.push(scanner.nextLine());
             }
 
-            int sizeOfStack = stack.size();
-            for (int i = 0; i < sizeOfStack; i++) {
+            while (!stack.empty()) {
                 writer.write(stack.pop() + "\n");
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error!");
         }
     }
 }

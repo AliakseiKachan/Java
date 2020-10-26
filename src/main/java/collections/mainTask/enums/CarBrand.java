@@ -1,0 +1,7 @@
+package collections.mainTask.enums;
+
+public enum CarBrand {
+
+    KIA, FORD, PEUGEOT, NISSAN, VOLKSWAGEN, HONDA, HYUNDAI, TOYOTA, OPEL, BMW, LEXUS, MERSEDES_BENZ, CADILLAC,
+    JAGUAR, ROLLS_ROYCE
+}

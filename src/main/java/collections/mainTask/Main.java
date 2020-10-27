@@ -1,6 +1,6 @@
 package collections.mainTask;
 
-import collections.mainTask.utils.Utils;
+import collections.mainTask.utils.CarUtils;
 import collections.mainTask.database.TaxiStation;
 
 /**
@@ -25,14 +25,25 @@ public class Main {
     public static void main(String[] args) {
 
         TaxiStation taxiStation = new TaxiStation();
-        Utils utils = new Utils(taxiStation.createDatabaseOfTaxiStation());
-        Utils utilsWagon = new Utils();
-        utilsWagon.setWagonCarList(taxiStation.createDatabaseOfWagonCars());
 
-        utils.allTaxiStationCars();
-        utils.costOfTaxiStationCars();
-        utils.allCarsSortedByFuelConsumption();
-        utils.findCarsByRangeOfSpeed(250, 300);
-        utilsWagon.sortedByRoofRails();
+        System.out.println("There is a list of all cars in taxi station: \n");
+        CarUtils.allTaxiStationCars(taxiStation.createDatabaseOfTaxiStation());
+        System.out.println();
+
+        System.out.print("There is a summary cost of all cars: ");
+        CarUtils.costOfTaxiStationCars(taxiStation.createDatabaseOfTaxiStation());
+        System.out.println();
+
+        System.out.println("There is a list of all cars sorted by fuel consumption: \n");
+        CarUtils.allCarsSortedByFuelConsumption(taxiStation.createDatabaseOfTaxiStation());
+        System.out.println();
+
+        System.out.println("There is a list of cars with max speed in next range: \n");
+        CarUtils.findCarsByRangeOfSpeed(taxiStation.createDatabaseOfTaxiStation(), 250, 300);
+        System.out.println();
+
+        System.out.println("There is a list of cars with rails on roof: \n");
+        CarUtils.sortedByRoofRails(taxiStation.createDatabaseOfTaxiStation());
+        System.out.println();
     }
 }

@@ -37,6 +37,20 @@ public class TaxiStation {
                2012, 260, 14.9, 130000.00, 4,
                true));
 
+       List<WagonCar> wagonCarsDatabase = new ArrayList<>();
+       wagonCarsDatabase.add(new WagonCar(CarClass.C, CarBrand.KIA, "CEED", CarColor.GREEN,
+               2016, 205, 6.6, 12200.00, 5,
+               false, true));
+       wagonCarsDatabase.add(new WagonCar(CarClass.C, CarBrand.PEUGEOT, "406", CarColor.BLUE,
+               2002, 198, 9.4, 4200.00, 5,
+               true, true));
+       wagonCarsDatabase.add(new WagonCar(CarClass.C, CarBrand.FORD, "FOCUS", CarColor.BLACK,
+               2007, 201, 7.8, 6500.00, 5,
+               true, true));
+       wagonCarsDatabase.add(new WagonCar(CarClass.D, CarBrand.BMW, "E39", CarColor.WHITE,
+               2003, 260, 8.8, 5600.00, 5,
+               false, true));
+
        List<CoupeCar> coupeCarsDatabase = new ArrayList<>();
        coupeCarsDatabase.add(new CoupeCar(CarClass.A, CarBrand.FORD, "KA", CarColor.PINK,
                2005, 174, 5.3, 3720.00, 2,
@@ -60,26 +74,8 @@ public class TaxiStation {
        List<Car> taxiStationDatabase = new ArrayList<>();
        taxiStationDatabase.addAll(sedanCarsDatabase);
        taxiStationDatabase.addAll(coupeCarsDatabase);
-       taxiStationDatabase.addAll(createDatabaseOfWagonCars());
+       taxiStationDatabase.addAll(wagonCarsDatabase);
 
        return taxiStationDatabase;
-    }
-
-    public List<WagonCar> createDatabaseOfWagonCars() {
-       List<WagonCar> wagonCarsDatabase = new ArrayList<>();
-       wagonCarsDatabase.add(new WagonCar(CarClass.C, CarBrand.KIA, "CEED", CarColor.GREEN,
-               2016, 205, 6.6, 12200.00, 5,
-               false, true));
-       wagonCarsDatabase.add(new WagonCar(CarClass.C, CarBrand.PEUGEOT, "406", CarColor.BLUE,
-               2002, 198, 9.4, 4200.00, 5,
-               true, true));
-       wagonCarsDatabase.add(new WagonCar(CarClass.C, CarBrand.FORD, "FOCUS", CarColor.BLACK,
-               2007, 201, 7.8, 6500.00, 5,
-               true, true));
-       wagonCarsDatabase.add(new WagonCar(CarClass.D, CarBrand.BMW, "E39", CarColor.WHITE,
-               2003, 260, 8.8, 5600.00, 5,
-               false, true));
-
-       return wagonCarsDatabase;
     }
 }

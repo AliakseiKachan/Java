@@ -58,7 +58,7 @@ public class Utils {
 
         System.out.println("There is a list of cars with rails on roof: \n");
 
-        wagonCarList.stream().filter(WagonCar::isAreThereRoofRails).collect(Collectors.toList())
+        wagonCarList.stream().filter(wagonCar -> wagonCar.isAreThereRoofRails() == true).collect(Collectors.toList())
                 .forEach(System.out::print);
         System.out.println();
     }

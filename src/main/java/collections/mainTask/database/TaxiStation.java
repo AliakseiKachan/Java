@@ -69,7 +69,7 @@ public class TaxiStation {
        List<WagonCar> wagonCarsDatabase = new ArrayList<>();
        wagonCarsDatabase.add(new WagonCar(CarClass.C, CarBrand.KIA, "CEED", CarColor.GREEN,
                2016, 205, 6.6, 12200.00, 5,
-               true, true));
+               false, true));
        wagonCarsDatabase.add(new WagonCar(CarClass.C, CarBrand.PEUGEOT, "406", CarColor.BLUE,
                2002, 198, 9.4, 4200.00, 5,
                true, true));
@@ -78,7 +78,7 @@ public class TaxiStation {
                true, true));
        wagonCarsDatabase.add(new WagonCar(CarClass.D, CarBrand.BMW, "E39", CarColor.WHITE,
                2003, 260, 8.8, 5600.00, 5,
-               true, true));
+               false, true));
 
        return wagonCarsDatabase;
     }

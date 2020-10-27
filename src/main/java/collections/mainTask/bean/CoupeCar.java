@@ -6,29 +6,49 @@ import collections.mainTask.enums.CarColor;
 
 public class CoupeCar extends  Car {
 
+    private boolean areTheFrontSeatsQuickFolding;
+    private boolean isTheLuggageCompartmentSeparatedFromTheSalon;
+
     public CoupeCar(CarClass carClass, CarBrand carBrand, String carModel, CarColor carColor, int yearOfProduction,
-                    int maxSpeed, double fuelConsumption, double carPrice, int countOfDoors) {
+                    int maxSpeed, double fuelConsumption, double carPrice, int countOfDoors,
+                    boolean areTheFrontSeatsQuickFolding, boolean isTheLuggageCompartmentSeparatedFromTheSalon) {
         super(carClass, carBrand, carModel, carColor, yearOfProduction, maxSpeed, fuelConsumption, carPrice,
                 countOfDoors);
+        this.areTheFrontSeatsQuickFolding = areTheFrontSeatsQuickFolding;
+        this.isTheLuggageCompartmentSeparatedFromTheSalon = isTheLuggageCompartmentSeparatedFromTheSalon;
     }
 
-    @Override
-    public boolean areThereRoofRails() {
-        return false;
+    public boolean isAreTheFrontSeatsQuickFolding() {
+        return areTheFrontSeatsQuickFolding;
     }
 
-    @Override
-    public boolean isItPossibleToTransportOversizedCargo() {
-        return false;
+    public void setAreTheFrontSeatsQuickFolding(boolean areTheFrontSeatsQuickFolding) {
+        this.areTheFrontSeatsQuickFolding = areTheFrontSeatsQuickFolding;
     }
 
-    @Override
-    public boolean areTheFrontSeatsQuickFolding() {
-        return true;
-    }
-
-    @Override
     public boolean isTheLuggageCompartmentSeparatedFromTheSalon() {
-        return true;
+        return isTheLuggageCompartmentSeparatedFromTheSalon;
+    }
+
+    public void setTheLuggageCompartmentSeparatedFromTheSalon(boolean theLuggageCompartmentSeparatedFromTheSalon) {
+        isTheLuggageCompartmentSeparatedFromTheSalon = theLuggageCompartmentSeparatedFromTheSalon;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("carClass=").append(getCarClass());
+        sb.append(", carBrand=").append(getCarBrand());
+        sb.append(", carModel='").append(getCarModel()).append('\'');
+        sb.append(", carColor=").append(getCarColor());
+        sb.append(", yearOfProduction=").append(getYearOfProduction());
+        sb.append(", countOfDoors=").append(getCountOfDoors());
+        sb.append(", maxSpeed=").append(getMaxSpeed()).append(" km/h");
+        sb.append(", fuelConsumption=").append(getFuelConsumption()).append(" l/100km");
+        sb.append(", carPrice=").append(getCarPrice()).append(" $");
+        sb.append(", areTheFrontSeatsQuickFolding=").append(isAreTheFrontSeatsQuickFolding());
+        sb.append(", isTheLuggageCompartmentSeparatedFromTheSalon=").append(isTheLuggageCompartmentSeparatedFromTheSalon());
+        sb.append("\n");
+        return sb.toString();
     }
 }

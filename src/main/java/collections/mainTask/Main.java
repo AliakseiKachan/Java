@@ -26,11 +26,13 @@ public class Main {
 
         TaxiStation taxiStation = new TaxiStation();
         Utils utils = new Utils(taxiStation.createDatabaseOfTaxiStation());
+        Utils utilsWagon = new Utils();
+        utilsWagon.setWagonCarList(taxiStation.createDatabaseOfWagonCars());
 
         utils.allTaxiStationCars();
         utils.costOfTaxiStationCars();
         utils.allCarsSortedByFuelConsumption();
         utils.findCarsByRangeOfSpeed(250, 300);
-        utils.sortedCarsByHavingRailsOnRoof();
+        utilsWagon.sortedByRoofRails();
     }
 }

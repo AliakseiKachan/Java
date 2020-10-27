@@ -1,6 +1,8 @@
 package collections.mainTask.utils;
 
 import collections.mainTask.bean.Car;
+import collections.mainTask.bean.WagonCar;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,6 +10,10 @@ import java.util.stream.Collectors;
 public class Utils {
 
     private List<Car> taxiStationList;
+    private List<WagonCar> wagonCarList;
+
+    public Utils() {
+    }
 
     public Utils(List<Car> taxiStationList) {
         this.taxiStationList = taxiStationList;
@@ -48,10 +54,16 @@ public class Utils {
         System.out.println();
     }
 
-    public void sortedCarsByHavingRailsOnRoof() {
+    public void sortedByRoofRails() {
 
-        System.out.println("There is a list of cars with rails on roof:\n");
+        System.out.println("There is a list of cars with rails on roof: \n");
 
-        taxiStationList.stream().filter(Car::areThereRoofRails).collect(Collectors.toList()).forEach(System.out::print);
+        wagonCarList.stream().filter(WagonCar::isAreThereRoofRails).collect(Collectors.toList())
+                .forEach(System.out::print);
+        System.out.println();
+    }
+
+    public void setWagonCarList(List<WagonCar> wagonCarList) {
+        this.wagonCarList = wagonCarList;
     }
 }

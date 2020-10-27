@@ -4,7 +4,7 @@ import collections.mainTask.enums.CarBrand;
 import collections.mainTask.enums.CarClass;
 import collections.mainTask.enums.CarColor;
 
-public abstract class Car {
+public class Car {
 
     private CarClass carClass;
     private CarBrand carBrand;
@@ -28,14 +28,6 @@ public abstract class Car {
         this.carPrice = carPrice;
         this.countOfDoors = countOfDoors;
     }
-
-    public abstract boolean areThereRoofRails();
-
-    public abstract boolean isItPossibleToTransportOversizedCargo();
-
-    public abstract boolean areTheFrontSeatsQuickFolding();
-
-    public abstract boolean isTheLuggageCompartmentSeparatedFromTheSalon();
 
     public int getCountOfDoors() {
         return countOfDoors;
@@ -121,10 +113,6 @@ public abstract class Car {
         sb.append(", maxSpeed=").append(maxSpeed).append(" km/h");
         sb.append(", fuelConsumption=").append(fuelConsumption).append(" l/100km");
         sb.append(", carPrice=").append(carPrice).append(" $");
-        sb.append(", roofRails=").append(areThereRoofRails());
-        sb.append(", transportOversizedCargo=").append(isItPossibleToTransportOversizedCargo());
-        sb.append(", quickFoldingFrontSeats=").append(areTheFrontSeatsQuickFolding());
-        sb.append(", luggageCompartmentSeparatedFromTheSalon=").append(isTheLuggageCompartmentSeparatedFromTheSalon());
         sb.append("\n");
         return sb.toString();
     }

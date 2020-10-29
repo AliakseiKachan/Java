@@ -1,14 +1,16 @@
 package exceptions.mainTask;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
 
     private int groupNumber;
-    private List<Student> studentsList;
+    private List<Student> studentsList = new ArrayList<>();
 
-    public Group(int groupNumber) {
+    public Group(int groupNumber, List<Student> studentsList) {
         this.groupNumber = groupNumber;
+        this.studentsList = studentsList;
     }
 
     public int getGroupNumber() {

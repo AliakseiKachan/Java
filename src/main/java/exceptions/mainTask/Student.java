@@ -1,16 +1,18 @@
 package exceptions.mainTask;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Student {
 
     private String lastName;
     private String firstName;
-    private HashMap<String, Double> subjectsAndMarks;
+    private List<Subject> subject = new ArrayList<>();
 
-    public Student(String lastName, String firstName) {
+    public Student(String lastName, String firstName, List<Subject> subject) {
         this.lastName = lastName;
         this.firstName = firstName;
+        this.subject = subject;
     }
 
     public String getLastName() {
@@ -29,12 +31,12 @@ public class Student {
         this.firstName = firstName;
     }
 
-    public HashMap<String, Double> getSubjectsAndMarks() {
-        return subjectsAndMarks;
+    public List<Subject> getSubject() {
+        return subject;
     }
 
-    public void setSubjectsAndMarks(HashMap<String, Double> subjectsAndMarks) {
-        this.subjectsAndMarks = subjectsAndMarks;
+    public void setSubject(List<Subject> subject) {
+        this.subject = subject;
     }
 
     @Override
@@ -42,7 +44,7 @@ public class Student {
         return "Student{" +
                 "lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", subjectsAndMarks=" + subjectsAndMarks +
+                ", subject=" + subject +
                 '}';
     }
 }

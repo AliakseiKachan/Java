@@ -1,14 +1,16 @@
 package exceptions.mainTask;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class University {
 
     private String nameOfTheUniversity;
-    private List<Faculty> facultiesList;
+    private List<Faculty> facultiesList = new ArrayList<>();
 
-    public University(String nameOfTheUniversity) {
+    public University(String nameOfTheUniversity, List<Faculty> facultiesList) {
         this.nameOfTheUniversity = nameOfTheUniversity;
+        this.facultiesList = facultiesList;
     }
 
     public String getNameOfTheUniversity() {

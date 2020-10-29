@@ -1,11 +1,11 @@
 package exceptions.mainTask;
 
+import java.util.List;
+
 public class University {
 
     private String nameOfTheUniversity;
-
-    public University() {
-    }
+    private List<Faculty> facultiesList;
 
     public University(String nameOfTheUniversity) {
         this.nameOfTheUniversity = nameOfTheUniversity;
@@ -19,11 +19,18 @@ public class University {
         this.nameOfTheUniversity = nameOfTheUniversity;
     }
 
+    public List<Faculty> getFacultiesList() {
+        return facultiesList;
+    }
+
+    public void setFacultiesList(List<Faculty> facultiesList) {
+        this.facultiesList = facultiesList;
+    }
+
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("University{");
-        sb.append("nameOfTheUniversity='").append(nameOfTheUniversity).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "University{" +
+                "nameOfTheUniversity='" + nameOfTheUniversity + '\'' +
+                '}';
     }
 }

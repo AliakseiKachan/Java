@@ -1,22 +1,16 @@
 package exceptions.mainTask;
 
-public class Student extends Group {
+import java.util.HashMap;
+
+public class Student {
 
     private String lastName;
     private String firstName;
-    private University university;
-    private Faculty faculty;
-    private Group group;
+    private HashMap<String, Double> subjectsAndMarks;
 
-    public Student() {
-    }
-
-    public Student(String lastName, String firstName, University university, Faculty faculty, Group group) {
+    public Student(String lastName, String firstName) {
         this.lastName = lastName;
         this.firstName = firstName;
-        this.university = university;
-        this.faculty = faculty;
-        this.group = group;
     }
 
     public String getLastName() {
@@ -35,39 +29,20 @@ public class Student extends Group {
         this.firstName = firstName;
     }
 
-    public University getUniversity() {
-        return university;
+    public HashMap<String, Double> getSubjectsAndMarks() {
+        return subjectsAndMarks;
     }
 
-    public void setUniversity(University university) {
-        this.university = university;
-    }
-
-    public Faculty getFaculty() {
-        return faculty;
-    }
-
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setSubjectsAndMarks(HashMap<String, Double> subjectsAndMarks) {
+        this.subjectsAndMarks = subjectsAndMarks;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Student{");
-        sb.append("lastName='").append(lastName).append('\'');
-        sb.append(", firstName='").append(firstName).append('\'');
-        sb.append(", university=").append(university);
-        sb.append(", faculty=").append(faculty);
-        sb.append(", group=").append(group);
-        sb.append('}');
-        return sb.toString();
+        return "Student{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", subjectsAndMarks=" + subjectsAndMarks +
+                '}';
     }
 }

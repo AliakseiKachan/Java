@@ -1,11 +1,11 @@
 package exceptions.mainTask;
 
-public class Faculty extends University {
+import java.util.List;
+
+public class Faculty {
 
     private String nameOfTheFaculty;
-
-    public Faculty() {
-    }
+    private List<Group> groupsList;
 
     public Faculty(String nameOfTheFaculty) {
         this.nameOfTheFaculty = nameOfTheFaculty;
@@ -19,11 +19,19 @@ public class Faculty extends University {
         this.nameOfTheFaculty = nameOfTheFaculty;
     }
 
+    public List<Group> getGroupsList() {
+        return groupsList;
+    }
+
+    public void setGroupsList(List<Group> groupsList) {
+        this.groupsList = groupsList;
+    }
+
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Faculty{");
-        sb.append("nameOfTheFaculty='").append(nameOfTheFaculty).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Faculty{" +
+                "nameOfTheFaculty='" + nameOfTheFaculty + '\'' +
+                ", groupsList=" + groupsList +
+                '}';
     }
 }

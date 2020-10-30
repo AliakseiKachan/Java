@@ -1,6 +1,7 @@
 package exceptions.mainTask;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Database {
@@ -13,8 +14,7 @@ public class Database {
                 new Faculty("Automotive Faculty",
                 new Group(1,
                 new Student("Ivanov", "Ivan",
-                new Subject("Computer Science",
-                new Mark(7.0)))))));
+                new HashMap<String, Double>("Computer Science", 7.0))))));
 
         return universitiesList;
     }

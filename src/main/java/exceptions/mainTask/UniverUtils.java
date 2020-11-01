@@ -1,6 +1,7 @@
 package exceptions.mainTask;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class UniverUtils {
@@ -75,5 +76,54 @@ public class UniverUtils {
         }
 
         return sum / quantityOfMarks;
+    }
+
+    public void checkMarksAreInRangeFromZeroToTen(HashMap<String, Double> stringDoubleHashMap) {
+
+        List<Double> doubleList = new ArrayList<>(stringDoubleHashMap.values());
+
+        for (int i = 0; i < doubleList.size(); i++) {
+
+            if(doubleList.get(i) < 0 || doubleList.get(i) > 10) {
+
+                throw new IllegalArgumentException("Mark may be from 0 to 10 only, this mark is incorrect: "
+                        + doubleList.get(i));
+            }
+        }
+    }
+
+    public void checkHasStudentAtLeastOneSubject(HashMap<String, Double> stringDoubleHashMap) {
+
+        if(stringDoubleHashMap.isEmpty()) {
+
+            throw new IllegalArgumentException("Student need to have at least one subject: " + stringDoubleHashMap);
+        }
+    }
+
+    public void checkHasAtLeastOneStudentInGroup(List<Student> studentList) {
+
+        if(studentList.isEmpty()) {
+
+            throw new IllegalArgumentException("Group need to include at least one student, " +
+                    "size of student list: " + studentList.size());
+        }
+    }
+
+    public void checkHasAtLeastOneGroupInTheFaculty(List<Group> groupList) {
+
+        if(groupList.isEmpty()) {
+
+            throw new IllegalArgumentException("Faculties need to include at least one group, " +
+                    "size of group list: " + groupList.size());
+        }
+    }
+
+    public void checkHasAtLeastOneFacultyInUniversity(List<Faculty> facultyList) {
+
+        if(facultyList.isEmpty()) {
+
+            throw new IllegalArgumentException("University need to include at least one faculty, " +
+                    "size of faculty list: " + facultyList.size());
+        }
     }
 }

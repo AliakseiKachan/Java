@@ -1,5 +1,9 @@
-package exceptions.mainTask;
+package exceptions.mainTask.database;
 
+import exceptions.mainTask.bean.Faculty;
+import exceptions.mainTask.bean.Group;
+import exceptions.mainTask.bean.Student;
+import exceptions.mainTask.bean.University;
 import java.util.HashMap;
 import java.util.List;
 import static java.util.Arrays.asList;

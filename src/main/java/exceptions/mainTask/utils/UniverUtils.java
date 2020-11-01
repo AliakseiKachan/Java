@@ -1,5 +1,9 @@
-package exceptions.mainTask;
+package exceptions.mainTask.utils;
 
+import exceptions.mainTask.bean.Faculty;
+import exceptions.mainTask.bean.Group;
+import exceptions.mainTask.bean.Student;
+import exceptions.mainTask.bean.University;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -96,7 +100,8 @@ public class UniverUtils {
 
         if(stringDoubleHashMap.isEmpty()) {
 
-            throw new IllegalArgumentException("Student need to have at least one subject: " + stringDoubleHashMap);
+            throw new IllegalArgumentException("Student need to have at least one subject, "
+                    + "count of subjects: " + stringDoubleHashMap.size());
         }
     }
 
@@ -104,8 +109,8 @@ public class UniverUtils {
 
         if(studentList.isEmpty()) {
 
-            throw new IllegalArgumentException("Group need to include at least one student, " +
-                    "size of student list: " + studentList.size());
+            throw new IllegalArgumentException("Group need to include at least one student, "
+                    + "size of student list: " + studentList.size());
         }
     }
 
@@ -113,8 +118,8 @@ public class UniverUtils {
 
         if(groupList.isEmpty()) {
 
-            throw new IllegalArgumentException("Faculties need to include at least one group, " +
-                    "size of group list: " + groupList.size());
+            throw new IllegalArgumentException("Faculties need to include at least one group, "
+                    + "size of group list: " + groupList.size());
         }
     }
 
@@ -122,8 +127,8 @@ public class UniverUtils {
 
         if(facultyList.isEmpty()) {
 
-            throw new IllegalArgumentException("University need to include at least one faculty, " +
-                    "size of faculty list: " + facultyList.size());
+            throw new IllegalArgumentException("University need to include at least one faculty, "
+                    + "size of faculty list: " + facultyList.size());
         }
     }
 }

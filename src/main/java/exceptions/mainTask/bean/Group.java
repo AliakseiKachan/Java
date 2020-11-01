@@ -1,4 +1,4 @@
-package exceptions.mainTask;
+package exceptions.mainTask.bean;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -23,7 +23,8 @@ public class UniverUtils {
         double sum = 0;
 
         for (int i = 0; i < facultyList.get(0).getGroupsList().get(0).getStudentsList().size(); i++) {
-            sum += facultyList.get(0).getGroupsList().get(0).getStudentsList().get(i).getSubjectAndMark().get("Computer Science");
+            sum += facultyList.get(0).getGroupsList().get(0).getStudentsList().get(i)
+                    .getSubjectAndMark().get("Computer Science");
         }
 
         return sum / facultyList.get(0).getGroupsList().get(0).getStudentsList().size();
@@ -32,40 +33,47 @@ public class UniverUtils {
     public double getAverageMarkForOneSubjectForEntireUniversity(List<University> universityList) {
 
         double sum = 0;
+        int quantityOfMarks = 0;
 
         int facultyMaxIndex = universityList.get(0).getFacultiesList().size() - 1;
         int groupMaxIndex = universityList.get(0)
                 .getFacultiesList().get(facultyMaxIndex).getGroupsList().size() - 1;
         int studentsMaxIndex = universityList.get(0)
-                .getFacultiesList().get(facultyMaxIndex).getGroupsList().get(groupMaxIndex).getStudentsList().size() - 1;
+                .getFacultiesList().get(facultyMaxIndex).getGroupsList().get(groupMaxIndex)
+                .getStudentsList().size() - 1;
 
-        int facultySize = universityList.get(0).getFacultiesList().size();
-        int groupSize = universityList.get(0)
-                .getFacultiesList().get(facultyMaxIndex).getGroupsList().size();
-        int studentsSize = universityList.get(0)
-                .getFacultiesList().get(facultyMaxIndex).getGroupsList().get(groupMaxIndex).getStudentsList().size();
+        try {
 
-        while (facultySize != 0) {
+            while (facultyMaxIndex >= 0) {
 
-            sum += universityList.get(0).getFacultiesList().get(facultyMaxIndex).getGroupsList().get(groupMaxIndex)
-                    .getStudentsList().get(studentsMaxIndex).getSubjectAndMark().get("Mathematics");
+                if (studentsMaxIndex >= 0) {
 
-            if(studentsSize > 0) {
-                System.out.println("stud on start " + studentsSize + "\n");
-                studentsSize--;
-                System.out.println("stud on finish " + studentsSize + "\n");
-            } else if(studentsSize == 0 && groupSize > 0) {
-                System.out.println("group on start " + groupSize + "\n");
-                groupSize--;
-                System.out.println("group on finish " + groupSize + "\n");
-                studentsSize = universityList.get(0)
-                        .getFacultiesList().get(facultyMaxIndex).getGroupsList().get(groupMaxIndex-1).getStudentsList().size();
-            } else {
-                System.out.println("fac on start " + facultySize + "\n");
-                facultySize--;
-                System.out.println("fac on finish " + facultySize + "\n");
+                    sum += universityList.get(0).getFacultiesList().get(facultyMaxIndex).getGroupsList()
+                            .get(groupMaxIndex).getStudentsList().get(studentsMaxIndex).getSubjectAndMark()
+                            .get("Physics");
+                    quantityOfMarks++;
+                    studentsMaxIndex--;
+
+                    if (studentsMaxIndex < 0 && groupMaxIndex >= 0) {
+
+                        studentsMaxIndex = universityList.get(0)
+                                .getFacultiesList().get(facultyMaxIndex).getGroupsList().get(groupMaxIndex)
+                                .getStudentsList().size() - 1;
+                        groupMaxIndex--;
+
+                        if (groupMaxIndex < 0 && facultyMaxIndex >= 0) {
+
+                            groupMaxIndex = universityList.get(0)
+                                    .getFacultiesList().get(facultyMaxIndex).getGroupsList().size() - 1;
+                            facultyMaxIndex--;
+                        }
+                    }
+                }
             }
+        } catch (IndexOutOfBoundsException e) {
+
         }
-        return sum;
+
+        return sum / quantityOfMarks;
     }
 }

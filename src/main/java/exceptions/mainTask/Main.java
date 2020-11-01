@@ -21,6 +21,9 @@ public class Main {
                 + " is: " + univerUtils
                 .getAverageMarkForSpecificSubjectInSpecificGroupAndAtSpecificFaculty(database.getFacultyList()));
 
-        System.out.println(univerUtils.getAverageMarkForOneSubjectForEntireUniversity(database.getUniversityList()));
+        System.out.println("Average mark for "
+                + database.getSubjectAndMarkForStudent1Group1().keySet().toArray()[2]
+                + " at all University is : "
+                +univerUtils.getAverageMarkForOneSubjectForEntireUniversity(database.getUniversityList()));
     }
 }

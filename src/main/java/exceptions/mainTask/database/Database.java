@@ -17,10 +17,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group1() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group1 = new HashMap<>();
-        subjectAndMarkForStudent1Group1.put("Computer Science", 7.0);
-        subjectAndMarkForStudent1Group1.put("Chemistry", 5.0);
-        subjectAndMarkForStudent1Group1.put("Physics", 8.0);
-        subjectAndMarkForStudent1Group1.put("Mathematics", 6.0);
+        subjectAndMarkForStudent1Group1.put("COMPUTER_SCIENCE", 7.0);
+        subjectAndMarkForStudent1Group1.put("CHEMISTRY", 5.0);
+        subjectAndMarkForStudent1Group1.put("PHYSICS", 8.0);
+        subjectAndMarkForStudent1Group1.put("MATHEMATICS", 6.0);
 
         return subjectAndMarkForStudent1Group1;
     }
@@ -28,10 +28,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group1() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group1 = new HashMap<>();
-        subjectAndMarkForStudent2Group1.put("Computer Science", 8.0);
-        subjectAndMarkForStudent2Group1.put("Chemistry", 4.0);
-        subjectAndMarkForStudent2Group1.put("Physics", 9.0);
-        subjectAndMarkForStudent2Group1.put("Mathematics", 8.0);
+        subjectAndMarkForStudent2Group1.put("COMPUTER_SCIENCE", 8.0);
+        subjectAndMarkForStudent2Group1.put("CHEMISTRY", 4.0);
+        subjectAndMarkForStudent2Group1.put("PHYSICS", 9.0);
+        subjectAndMarkForStudent2Group1.put("MATHEMATICS", 8.0);
 
         return subjectAndMarkForStudent2Group1;
     }
@@ -39,10 +39,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group1() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group1 = new HashMap<>();
-        subjectAndMarkForStudent3Group1.put("Computer Science", 5.0);
-        subjectAndMarkForStudent3Group1.put("Chemistry", 7.0);
-        subjectAndMarkForStudent3Group1.put("Physics", 6.0);
-        subjectAndMarkForStudent3Group1.put("Mathematics", 8.0);
+        subjectAndMarkForStudent3Group1.put("COMPUTER_SCIENCE", 5.0);
+        subjectAndMarkForStudent3Group1.put("CHEMISTRY", 7.0);
+        subjectAndMarkForStudent3Group1.put("PHYSICS", 6.0);
+        subjectAndMarkForStudent3Group1.put("MATHEMATICS", 8.0);
 
         return subjectAndMarkForStudent3Group1;
     }
@@ -66,10 +66,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group2() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group2 = new HashMap<>();
-        subjectAndMarkForStudent1Group2.put("Computer Science", 4.0);
-        subjectAndMarkForStudent1Group2.put("Chemistry", 4.0);
-        subjectAndMarkForStudent1Group2.put("Physics", 6.0);
-        subjectAndMarkForStudent1Group2.put("Mathematics", 9.0);
+        subjectAndMarkForStudent1Group2.put("COMPUTER_SCIENCE", 4.0);
+        subjectAndMarkForStudent1Group2.put("CHEMISTRY", 4.0);
+        subjectAndMarkForStudent1Group2.put("PHYSICS", 6.0);
+        subjectAndMarkForStudent1Group2.put("MATHEMATICS", 9.0);
 
         return subjectAndMarkForStudent1Group2;
     }
@@ -77,10 +77,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group2() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group2 = new HashMap<>();
-        subjectAndMarkForStudent2Group2.put("Computer Science", 5.0);
-        subjectAndMarkForStudent2Group2.put("Chemistry", 3.0);
-        subjectAndMarkForStudent2Group2.put("Physics", 6.0);
-        subjectAndMarkForStudent2Group2.put("Mathematics", 6.0);
+        subjectAndMarkForStudent2Group2.put("COMPUTER_SCIENCE", 5.0);
+        subjectAndMarkForStudent2Group2.put("CHEMISTRY", 3.0);
+        subjectAndMarkForStudent2Group2.put("PHYSICS", 6.0);
+        subjectAndMarkForStudent2Group2.put("MATHEMATICS", 6.0);
 
         return subjectAndMarkForStudent2Group2;
     }
@@ -88,10 +88,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group2() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group2 = new HashMap<>();
-        subjectAndMarkForStudent3Group2.put("Computer Science", 8.0);
-        subjectAndMarkForStudent3Group2.put("Chemistry", 8.0);
-        subjectAndMarkForStudent3Group2.put("Physics", 7.0);
-        subjectAndMarkForStudent3Group2.put("Mathematics", 5.0);
+        subjectAndMarkForStudent3Group2.put("COMPUTER_SCIENCE", 8.0);
+        subjectAndMarkForStudent3Group2.put("CHEMISTRY", 8.0);
+        subjectAndMarkForStudent3Group2.put("PHYSICS", 7.0);
+        subjectAndMarkForStudent3Group2.put("MATHEMATICS", 5.0);
 
         return subjectAndMarkForStudent3Group2;
     }
@@ -115,10 +115,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group3() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group3 = new HashMap<>();
-        subjectAndMarkForStudent1Group3.put("Computer Science", 5.0);
-        subjectAndMarkForStudent1Group3.put("Chemistry", 7.0);
-        subjectAndMarkForStudent1Group3.put("Physics", 7.0);
-        subjectAndMarkForStudent1Group3.put("Mathematics", 6.0);
+        subjectAndMarkForStudent1Group3.put("COMPUTER_SCIENCE", 5.0);
+        subjectAndMarkForStudent1Group3.put("CHEMISTRY", 7.0);
+        subjectAndMarkForStudent1Group3.put("PHYSICS", 7.0);
+        subjectAndMarkForStudent1Group3.put("MATHEMATICS", 6.0);
 
         return subjectAndMarkForStudent1Group3;
     }
@@ -126,10 +126,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group3() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group3 = new HashMap<>();
-        subjectAndMarkForStudent2Group3.put("Computer Science", 6.0);
-        subjectAndMarkForStudent2Group3.put("Chemistry", 7.0);
-        subjectAndMarkForStudent2Group3.put("Physics", 4.0);
-        subjectAndMarkForStudent2Group3.put("Mathematics", 4.0);
+        subjectAndMarkForStudent2Group3.put("COMPUTER_SCIENCE", 6.0);
+        subjectAndMarkForStudent2Group3.put("CHEMISTRY", 7.0);
+        subjectAndMarkForStudent2Group3.put("PHYSICS", 4.0);
+        subjectAndMarkForStudent2Group3.put("MATHEMATICS", 4.0);
 
         return subjectAndMarkForStudent2Group3;
     }
@@ -137,10 +137,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group3() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group3 = new HashMap<>();
-        subjectAndMarkForStudent3Group3.put("Computer Science", 9.0);
-        subjectAndMarkForStudent3Group3.put("Chemistry", 10.0);
-        subjectAndMarkForStudent3Group3.put("Physics", 8.0);
-        subjectAndMarkForStudent3Group3.put("Mathematics", 7.0);
+        subjectAndMarkForStudent3Group3.put("COMPUTER_SCIENCE", 9.0);
+        subjectAndMarkForStudent3Group3.put("CHEMISTRY", 10.0);
+        subjectAndMarkForStudent3Group3.put("PHYSICS", 8.0);
+        subjectAndMarkForStudent3Group3.put("MATHEMATICS", 7.0);
 
         return subjectAndMarkForStudent3Group3;
     }
@@ -178,10 +178,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group4() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group4 = new HashMap<>();
-        subjectAndMarkForStudent1Group4.put("Computer Science", 8.0);
-        subjectAndMarkForStudent1Group4.put("Chemistry", 7.0);
-        subjectAndMarkForStudent1Group4.put("Physics", 8.0);
-        subjectAndMarkForStudent1Group4.put("Mathematics", 3.0);
+        subjectAndMarkForStudent1Group4.put("COMPUTER_SCIENCE", 8.0);
+        subjectAndMarkForStudent1Group4.put("CHEMISTRY", 7.0);
+        subjectAndMarkForStudent1Group4.put("PHYSICS", 8.0);
+        subjectAndMarkForStudent1Group4.put("MATHEMATICS", 3.0);
 
         return subjectAndMarkForStudent1Group4;
     }
@@ -189,10 +189,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group4() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group4 = new HashMap<>();
-        subjectAndMarkForStudent2Group4.put("Computer Science", 5.0);
-        subjectAndMarkForStudent2Group4.put("Chemistry", 5.0);
-        subjectAndMarkForStudent2Group4.put("Physics", 7.0);
-        subjectAndMarkForStudent2Group4.put("Mathematics", 9.0);
+        subjectAndMarkForStudent2Group4.put("COMPUTER_SCIENCE", 5.0);
+        subjectAndMarkForStudent2Group4.put("CHEMISTRY", 5.0);
+        subjectAndMarkForStudent2Group4.put("PHYSICS", 7.0);
+        subjectAndMarkForStudent2Group4.put("MATHEMATICS", 9.0);
 
         return subjectAndMarkForStudent2Group4;
     }
@@ -200,10 +200,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group4() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group4 = new HashMap<>();
-        subjectAndMarkForStudent3Group4.put("Computer Science", 4.0);
-        subjectAndMarkForStudent3Group4.put("Chemistry", 3.0);
-        subjectAndMarkForStudent3Group4.put("Physics", 4.0);
-        subjectAndMarkForStudent3Group4.put("Mathematics", 6.0);
+        subjectAndMarkForStudent3Group4.put("COMPUTER_SCIENCE", 4.0);
+        subjectAndMarkForStudent3Group4.put("CHEMISTRY", 3.0);
+        subjectAndMarkForStudent3Group4.put("PHYSICS", 4.0);
+        subjectAndMarkForStudent3Group4.put("MATHEMATICS", 6.0);
 
         return subjectAndMarkForStudent3Group4;
     }
@@ -227,10 +227,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group5() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group5 = new HashMap<>();
-        subjectAndMarkForStudent1Group5.put("Computer Science", 7.0);
-        subjectAndMarkForStudent1Group5.put("Chemistry", 6.0);
-        subjectAndMarkForStudent1Group5.put("Physics", 9.0);
-        subjectAndMarkForStudent1Group5.put("Mathematics", 4.0);
+        subjectAndMarkForStudent1Group5.put("COMPUTER_SCIENCE", 7.0);
+        subjectAndMarkForStudent1Group5.put("CHEMISTRY", 6.0);
+        subjectAndMarkForStudent1Group5.put("PHYSICS", 9.0);
+        subjectAndMarkForStudent1Group5.put("MATHEMATICS", 4.0);
 
         return subjectAndMarkForStudent1Group5;
     }
@@ -238,10 +238,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group5() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group5 = new HashMap<>();
-        subjectAndMarkForStudent2Group5.put("Computer Science", 4.0);
-        subjectAndMarkForStudent2Group5.put("Chemistry", 7.0);
-        subjectAndMarkForStudent2Group5.put("Physics", 7.0);
-        subjectAndMarkForStudent2Group5.put("Mathematics", 9.0);
+        subjectAndMarkForStudent2Group5.put("COMPUTER_SCIENCE", 4.0);
+        subjectAndMarkForStudent2Group5.put("CHEMISTRY", 7.0);
+        subjectAndMarkForStudent2Group5.put("PHYSICS", 7.0);
+        subjectAndMarkForStudent2Group5.put("MATHEMATICS", 9.0);
 
         return subjectAndMarkForStudent2Group5;
     }
@@ -249,10 +249,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group5() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group5 = new HashMap<>();
-        subjectAndMarkForStudent3Group5.put("Computer Science", 5.0);
-        subjectAndMarkForStudent3Group5.put("Chemistry", 4.0);
-        subjectAndMarkForStudent3Group5.put("Physics", 6.0);
-        subjectAndMarkForStudent3Group5.put("Mathematics", 8.0);
+        subjectAndMarkForStudent3Group5.put("COMPUTER_SCIENCE", 5.0);
+        subjectAndMarkForStudent3Group5.put("CHEMISTRY", 4.0);
+        subjectAndMarkForStudent3Group5.put("PHYSICS", 6.0);
+        subjectAndMarkForStudent3Group5.put("MATHEMATICS", 8.0);
 
         return subjectAndMarkForStudent3Group5;
     }
@@ -276,10 +276,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group6() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group6 = new HashMap<>();
-        subjectAndMarkForStudent1Group6.put("Computer Science", 3.0);
-        subjectAndMarkForStudent1Group6.put("Chemistry", 4.0);
-        subjectAndMarkForStudent1Group6.put("Physics", 4.0);
-        subjectAndMarkForStudent1Group6.put("Mathematics", 5.0);
+        subjectAndMarkForStudent1Group6.put("COMPUTER_SCIENCE", 3.0);
+        subjectAndMarkForStudent1Group6.put("CHEMISTRY", 4.0);
+        subjectAndMarkForStudent1Group6.put("PHYSICS", 4.0);
+        subjectAndMarkForStudent1Group6.put("MATHEMATICS", 5.0);
 
         return subjectAndMarkForStudent1Group6;
     }
@@ -287,10 +287,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group6() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group6 = new HashMap<>();
-        subjectAndMarkForStudent2Group6.put("Computer Science", 7.0);
-        subjectAndMarkForStudent2Group6.put("Chemistry", 4.0);
-        subjectAndMarkForStudent2Group6.put("Physics", 5.0);
-        subjectAndMarkForStudent2Group6.put("Mathematics", 6.0);
+        subjectAndMarkForStudent2Group6.put("COMPUTER_SCIENCE", 7.0);
+        subjectAndMarkForStudent2Group6.put("CHEMISTRY", 4.0);
+        subjectAndMarkForStudent2Group6.put("PHYSICS", 5.0);
+        subjectAndMarkForStudent2Group6.put("MATHEMATICS", 6.0);
 
         return subjectAndMarkForStudent2Group6;
     }
@@ -298,10 +298,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group6() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group6 = new HashMap<>();
-        subjectAndMarkForStudent3Group6.put("Computer Science", 7.0);
-        subjectAndMarkForStudent3Group6.put("Chemistry", 7.0);
-        subjectAndMarkForStudent3Group6.put("Physics", 8.0);
-        subjectAndMarkForStudent3Group6.put("Mathematics", 9.0);
+        subjectAndMarkForStudent3Group6.put("COMPUTER_SCIENCE", 7.0);
+        subjectAndMarkForStudent3Group6.put("CHEMISTRY", 7.0);
+        subjectAndMarkForStudent3Group6.put("PHYSICS", 8.0);
+        subjectAndMarkForStudent3Group6.put("MATHEMATICS", 9.0);
 
         return subjectAndMarkForStudent3Group6;
     }
@@ -339,10 +339,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group7() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group7 = new HashMap<>();
-        subjectAndMarkForStudent1Group7.put("Computer Science", 5.0);
-        subjectAndMarkForStudent1Group7.put("Chemistry", 5.0);
-        subjectAndMarkForStudent1Group7.put("Physics", 7.0);
-        subjectAndMarkForStudent1Group7.put("Mathematics", 7.0);
+        subjectAndMarkForStudent1Group7.put("COMPUTER_SCIENCE", 5.0);
+        subjectAndMarkForStudent1Group7.put("CHEMISTRY", 5.0);
+        subjectAndMarkForStudent1Group7.put("PHYSICS", 7.0);
+        subjectAndMarkForStudent1Group7.put("MATHEMATICS", 7.0);
 
         return subjectAndMarkForStudent1Group7;
     }
@@ -350,10 +350,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group7() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group7 = new HashMap<>();
-        subjectAndMarkForStudent2Group7.put("Computer Science", 4.0);
-        subjectAndMarkForStudent2Group7.put("Chemistry", 6.0);
-        subjectAndMarkForStudent2Group7.put("Physics", 5.0);
-        subjectAndMarkForStudent2Group7.put("Mathematics", 8.0);
+        subjectAndMarkForStudent2Group7.put("COMPUTER_SCIENCE", 4.0);
+        subjectAndMarkForStudent2Group7.put("CHEMISTRY", 6.0);
+        subjectAndMarkForStudent2Group7.put("PHYSICS", 5.0);
+        subjectAndMarkForStudent2Group7.put("MATHEMATICS", 8.0);
 
         return subjectAndMarkForStudent2Group7;
     }
@@ -361,10 +361,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group7() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group7 = new HashMap<>();
-        subjectAndMarkForStudent3Group7.put("Computer Science", 3.0);
-        subjectAndMarkForStudent3Group7.put("Chemistry", 6.0);
-        subjectAndMarkForStudent3Group7.put("Physics", 6.0);
-        subjectAndMarkForStudent3Group7.put("Mathematics", 9.0);
+        subjectAndMarkForStudent3Group7.put("COMPUTER_SCIENCE", 3.0);
+        subjectAndMarkForStudent3Group7.put("CHEMISTRY", 6.0);
+        subjectAndMarkForStudent3Group7.put("PHYSICS", 6.0);
+        subjectAndMarkForStudent3Group7.put("MATHEMATICS", 9.0);
 
         return subjectAndMarkForStudent3Group7;
     }
@@ -388,10 +388,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group8() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group8 = new HashMap<>();
-        subjectAndMarkForStudent1Group8.put("Computer Science", 5.0);
-        subjectAndMarkForStudent1Group8.put("Chemistry", 5.0);
-        subjectAndMarkForStudent1Group8.put("Physics", 6.0);
-        subjectAndMarkForStudent1Group8.put("Mathematics", 7.0);
+        subjectAndMarkForStudent1Group8.put("COMPUTER_SCIENCE", 5.0);
+        subjectAndMarkForStudent1Group8.put("CHEMISTRY", 5.0);
+        subjectAndMarkForStudent1Group8.put("PHYSICS", 6.0);
+        subjectAndMarkForStudent1Group8.put("MATHEMATICS", 7.0);
 
         return subjectAndMarkForStudent1Group8;
     }
@@ -399,10 +399,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group8() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group8 = new HashMap<>();
-        subjectAndMarkForStudent2Group8.put("Computer Science", 6.0);
-        subjectAndMarkForStudent2Group8.put("Chemistry", 6.0);
-        subjectAndMarkForStudent2Group8.put("Physics", 4.0);
-        subjectAndMarkForStudent2Group8.put("Mathematics", 5.0);
+        subjectAndMarkForStudent2Group8.put("COMPUTER_SCIENCE", 6.0);
+        subjectAndMarkForStudent2Group8.put("CHEMISTRY", 6.0);
+        subjectAndMarkForStudent2Group8.put("PHYSICS", 4.0);
+        subjectAndMarkForStudent2Group8.put("MATHEMATICS", 5.0);
 
         return subjectAndMarkForStudent2Group8;
     }
@@ -410,10 +410,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group8() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group8 = new HashMap<>();
-        subjectAndMarkForStudent3Group8.put("Computer Science", 7.0);
-        subjectAndMarkForStudent3Group8.put("Chemistry", 7.0);
-        subjectAndMarkForStudent3Group8.put("Physics", 6.0);
-        subjectAndMarkForStudent3Group8.put("Mathematics", 6.0);
+        subjectAndMarkForStudent3Group8.put("COMPUTER_SCIENCE", 7.0);
+        subjectAndMarkForStudent3Group8.put("CHEMISTRY", 7.0);
+        subjectAndMarkForStudent3Group8.put("PHYSICS", 6.0);
+        subjectAndMarkForStudent3Group8.put("MATHEMATICS", 6.0);
 
         return subjectAndMarkForStudent3Group8;
     }
@@ -437,10 +437,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent1Group9() {
 
         HashMap<String, Double> subjectAndMarkForStudent1Group9 = new HashMap<>();
-        subjectAndMarkForStudent1Group9.put("Computer Science", 4.0);
-        subjectAndMarkForStudent1Group9.put("Chemistry", 6.0);
-        subjectAndMarkForStudent1Group9.put("Physics", 8.0);
-        subjectAndMarkForStudent1Group9.put("Mathematics", 8.0);
+        subjectAndMarkForStudent1Group9.put("COMPUTER_SCIENCE", 4.0);
+        subjectAndMarkForStudent1Group9.put("CHEMISTRY", 6.0);
+        subjectAndMarkForStudent1Group9.put("PHYSICS", 8.0);
+        subjectAndMarkForStudent1Group9.put("MATHEMATICS", 8.0);
 
         return subjectAndMarkForStudent1Group9;
     }
@@ -448,10 +448,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent2Group9() {
 
         HashMap<String, Double> subjectAndMarkForStudent2Group9 = new HashMap<>();
-        subjectAndMarkForStudent2Group9.put("Computer Science", 5.0);
-        subjectAndMarkForStudent2Group9.put("Chemistry", 5.0);
-        subjectAndMarkForStudent2Group9.put("Physics", 8.0);
-        subjectAndMarkForStudent2Group9.put("Mathematics", 7.0);
+        subjectAndMarkForStudent2Group9.put("COMPUTER_SCIENCE", 5.0);
+        subjectAndMarkForStudent2Group9.put("CHEMISTRY", 5.0);
+        subjectAndMarkForStudent2Group9.put("PHYSICS", 8.0);
+        subjectAndMarkForStudent2Group9.put("MATHEMATICS", 7.0);
 
         return subjectAndMarkForStudent2Group9;
     }
@@ -459,10 +459,10 @@ public class Database {
     public HashMap<String, Double> getSubjectAndMarkForStudent3Group9() {
 
         HashMap<String, Double> subjectAndMarkForStudent3Group9 = new HashMap<>();
-        subjectAndMarkForStudent3Group9.put("Computer Science", 7.0);
-        subjectAndMarkForStudent3Group9.put("Chemistry", 4.0);
-        subjectAndMarkForStudent3Group9.put("Physics", 3.0);
-        subjectAndMarkForStudent3Group9.put("Mathematics", 5.0);
+        subjectAndMarkForStudent3Group9.put("COMPUTER_SCIENCE", 7.0);
+        subjectAndMarkForStudent3Group9.put("CHEMISTRY", 4.0);
+        subjectAndMarkForStudent3Group9.put("PHYSICS", 3.0);
+        subjectAndMarkForStudent3Group9.put("MATHEMATICS", 5.0);
 
         return subjectAndMarkForStudent3Group9;
     }

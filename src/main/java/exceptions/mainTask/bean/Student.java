@@ -1,11 +1,13 @@
 package exceptions.mainTask.bean;
 
+import exceptions.mainTask.enums.Subject;
 import java.util.HashMap;
 
 public class Student {
 
     private String lastName;
     private String firstName;
+    private Subject subject;
     private HashMap<String, Double> subjectAndMark = new HashMap<>();
 
     public Student(String lastName, String firstName, HashMap<String, Double> subjectAndMark) {
@@ -38,11 +40,20 @@ public class Student {
         this.subjectAndMark = subjectAndMark;
     }
 
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
+                ", subject=" + subject +
                 ", subjectAndMark=" + subjectAndMark +
                 '}';
     }

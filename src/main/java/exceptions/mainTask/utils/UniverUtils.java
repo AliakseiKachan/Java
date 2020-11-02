@@ -4,15 +4,16 @@ import exceptions.mainTask.bean.Faculty;
 import exceptions.mainTask.bean.Group;
 import exceptions.mainTask.bean.Student;
 import exceptions.mainTask.bean.University;
+import exceptions.mainTask.enums.Subject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class UniverUtils {
 
-    public double getAverageMarkOfOneStudent(List<Student> studentListGroupNumber) {
+    public double getAverageMarkOfOneStudent(Student student) {
 
-        List<Double> doubleList = new ArrayList<>(studentListGroupNumber.get(0).getSubjectAndMark().values());
+        List<Double> doubleList = new ArrayList<>(student.getSubjectAndMark().values());
 
         double sum = 0;
 
@@ -20,19 +21,32 @@ public class UniverUtils {
             sum += doubleList.get(i);
         }
 
-        return sum / doubleList.size();
+        System.out.print("Average mark of all subjects of " + student.getFirstName() + " "
+                + student.getLastName() + " is: ");
+
+        return Math.ceil(sum / doubleList.size() * Math.pow(10, 2)) / Math.pow(10, 2);
     }
 
-    public double getAverageMarkForSpecificSubjectInSpecificGroupAndAtSpecificFaculty(List<Faculty> facultyList) {
+    public double getAverageMarkForSpecificSubjectInSpecificGroupAndAtSpecificFaculty(Faculty faculty, Group group,
+                                                                                                     Subject subject) {
 
         double sum = 0;
 
-        for (int i = 0; i < facultyList.get(0).getGroupsList().get(0).getStudentsList().size(); i++) {
-            sum += facultyList.get(0).getGroupsList().get(0).getStudentsList().get(i)
-                    .getSubjectAndMark().get("Computer Science");
+        for (int i = 0; i < group.getStudentsList().size(); i++) {
+            sum += group.getStudentsList().get(i).getSubjectAndMark().get(subject.toString());
         }
 
-        return sum / facultyList.get(0).getGroupsList().get(0).getStudentsList().size();
+        System.out.print("Average mark for " + subject.toString() + " in group number " + group.getGroupNumber()
+                + " at the " + faculty.getNameOfTheFaculty() + " is: ");
+
+        return Math.ceil(sum / group.getStudentsList().size() * Math.pow(10, 2)) / Math.pow(10, 2);
+    }
+
+    public double getAverageMarkForOneSubjectForEntireUniversity(University university, Subject subject) {
+
+
+
+        return 0;
     }
 
     public double getAverageMarkForOneSubjectForEntireUniversity(List<University> universityList) {

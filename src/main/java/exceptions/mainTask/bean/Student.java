@@ -1,7 +1,10 @@
 package exceptions.mainTask.bean;
 
 import exceptions.mainTask.enums.Subject;
+import exceptions.mainTask.customExceptions.EmptyListException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Student {
 
@@ -10,10 +13,24 @@ public class Student {
     private Subject subject;
     private HashMap<String, Double> subjectAndMark = new HashMap<>();
 
-    public Student(String lastName, String firstName, HashMap<String, Double> subjectAndMark) {
+    public Student(String lastName, String firstName, HashMap<String, Double> subjectAndMark)
+                    throws EmptyListException {
         this.lastName = lastName;
         this.firstName = firstName;
         this.subjectAndMark = subjectAndMark;
+
+        List<Double> doubleList = new ArrayList<>(subjectAndMark.values());
+        for (int i = 0; i < subjectAndMark.size(); i++) {
+            if(doubleList.get(i) < 0 || doubleList.get(i) > 10) {
+                throw new IllegalArgumentException("Mark may be from 0 to 10 only, this mark is incorrect: "
+                        + doubleList.get(i));
+            }
+        }
+
+        if(subjectAndMark.isEmpty()) {
+            throw new EmptyListException("Student need to have at least one subject, "
+                    + "count of subjects: " + subjectAndMark.size());
+        }
     }
 
     public String getLastName() {

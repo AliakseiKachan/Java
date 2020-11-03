@@ -6,7 +6,6 @@ import exceptions.mainTask.bean.Student;
 import exceptions.mainTask.bean.University;
 import exceptions.mainTask.enums.Subject;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class UniverUtils {
@@ -44,105 +43,25 @@ public class UniverUtils {
 
     public double getAverageMarkForOneSubjectForEntireUniversity(University university, Subject subject) {
 
-
-
-        return 0;
-    }
-
-    public double getAverageMarkForOneSubjectForEntireUniversity(List<University> universityList) {
-
         double sum = 0;
-        int quantityOfMarks = 0;
+        int counter = 0;
 
-        int facultyMaxIndex = universityList.get(0).getFacultiesList().size() - 1;
-        int groupMaxIndex = universityList.get(0)
-                .getFacultiesList().get(facultyMaxIndex).getGroupsList().size() - 1;
-        int studentsMaxIndex = universityList.get(0)
-                .getFacultiesList().get(facultyMaxIndex).getGroupsList().get(groupMaxIndex)
-                .getStudentsList().size() - 1;
+        for (int i = 0; i < university.getFacultiesList().size(); i++) {
 
-        try {
+            for (int j = 0; j < university.getFacultiesList().get(i).getGroupsList().size(); j++) {
 
-            while (facultyMaxIndex >= 0) {
-
-                if (studentsMaxIndex >= 0) {
-
-                    sum += universityList.get(0).getFacultiesList().get(facultyMaxIndex).getGroupsList()
-                            .get(groupMaxIndex).getStudentsList().get(studentsMaxIndex).getSubjectAndMark()
-                            .get("Physics");
-                    quantityOfMarks++;
-                    studentsMaxIndex--;
-
-                    if (studentsMaxIndex < 0 && groupMaxIndex >= 0) {
-
-                        studentsMaxIndex = universityList.get(0)
-                                .getFacultiesList().get(facultyMaxIndex).getGroupsList().get(groupMaxIndex)
-                                .getStudentsList().size() - 1;
-                        groupMaxIndex--;
-
-                        if (groupMaxIndex < 0 && facultyMaxIndex >= 0) {
-
-                            groupMaxIndex = universityList.get(0)
-                                    .getFacultiesList().get(facultyMaxIndex).getGroupsList().size() - 1;
-                            facultyMaxIndex--;
-                        }
-                    }
+                for (int k = 0; k < university.getFacultiesList().get(i).getGroupsList().get(j)
+                                                                    .getStudentsList().size(); k++) {
+                    counter++;
+                    sum += university.getFacultiesList().get(i).getGroupsList().get(j).getStudentsList().get(k)
+                                                                        .getSubjectAndMark().get(subject.toString());
                 }
             }
-        } catch (IndexOutOfBoundsException e) {
-
         }
 
-        return sum / quantityOfMarks;
-    }
+        System.out.print("Average mark for " + subject.toString() + " in "
+                                + university.getNameOfTheUniversity() + " is: ");
 
-    public void checkMarksAreInRangeFromZeroToTen(HashMap<String, Double> stringDoubleHashMap) {
-
-        List<Double> doubleList = new ArrayList<>(stringDoubleHashMap.values());
-
-        for (int i = 0; i < doubleList.size(); i++) {
-
-            if(doubleList.get(i) < 0 || doubleList.get(i) > 10) {
-
-                throw new IllegalArgumentException("Mark may be from 0 to 10 only, this mark is incorrect: "
-                        + doubleList.get(i));
-            }
-        }
-    }
-
-    public void checkHasStudentAtLeastOneSubject(HashMap<String, Double> stringDoubleHashMap) {
-
-        if(stringDoubleHashMap.isEmpty()) {
-
-            throw new IllegalArgumentException("Student need to have at least one subject, "
-                    + "count of subjects: " + stringDoubleHashMap.size());
-        }
-    }
-
-    public void checkHasAtLeastOneStudentInGroup(List<Student> studentList) {
-
-        if(studentList.isEmpty()) {
-
-            throw new IllegalArgumentException("Group need to include at least one student, "
-                    + "size of student list: " + studentList.size());
-        }
-    }
-
-    public void checkHasAtLeastOneGroupInTheFaculty(List<Group> groupList) {
-
-        if(groupList.isEmpty()) {
-
-            throw new IllegalArgumentException("Faculties need to include at least one group, "
-                    + "size of group list: " + groupList.size());
-        }
-    }
-
-    public void checkHasAtLeastOneFacultyInUniversity(List<Faculty> facultyList) {
-
-        if(facultyList.isEmpty()) {
-
-            throw new IllegalArgumentException("University need to include at least one faculty, "
-                    + "size of faculty list: " + facultyList.size());
-        }
+        return Math.ceil(sum / counter * Math.pow(10, 2)) / Math.pow(10, 2);
     }
 }

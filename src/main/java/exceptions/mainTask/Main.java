@@ -2,6 +2,7 @@ package exceptions.mainTask;
 
 import exceptions.mainTask.database.Database;
 import exceptions.mainTask.enums.Subject;
+import exceptions.mainTask.customExceptions.EmptyListException;
 import exceptions.mainTask.utils.UniverUtils;
 
 /**
@@ -23,14 +24,17 @@ import exceptions.mainTask.utils.UniverUtils;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EmptyListException {
 
         Database database = new Database();
         UniverUtils univerUtils = new UniverUtils();
 
-        System.out.println(univerUtils.getAverageMarkOfOneStudent(database.getStudentListGroup9().get(2)));
+        System.out.println(univerUtils.getAverageMarkOfOneStudent(database.getStudentListGroup7().get(1)));
 
-        System.out.println(univerUtils.getAverageMarkForSpecificSubjectInSpecificGroupAndAtSpecificFaculty(database.getFacultyList().get(2),
-                        database.getGroupListFaculty3().get(2), Subject.COMPUTER_SCIENCE));
+        System.out.println(univerUtils.getAverageMarkForSpecificSubjectInSpecificGroupAndAtSpecificFaculty(database
+                        .getFacultyList().get(2), database.getGroupListFaculty3().get(2), Subject.PHYSICS));
+
+        System.out.println(univerUtils.getAverageMarkForOneSubjectForEntireUniversity(database
+                                                 .getUniversityList().get(0), Subject.COMPUTER_SCIENCE));
     }
 }

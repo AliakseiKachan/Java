@@ -4,6 +4,7 @@ import exceptions.mainTask.bean.Faculty;
 import exceptions.mainTask.bean.Group;
 import exceptions.mainTask.bean.Student;
 import exceptions.mainTask.bean.University;
+import exceptions.mainTask.customExceptions.EmptyListException;
 import java.util.HashMap;
 import java.util.List;
 import static java.util.Arrays.asList;
@@ -47,7 +48,18 @@ public class Database {
         return subjectAndMarkForStudent3Group1;
     }
 
-    public List<Student> getStudentListGroup1() {
+    public HashMap<String, Double> getSubjectAndMarkForStudent4Group1() {
+
+        HashMap<String, Double> subjectAndMarkForStudent4Group1 = new HashMap<>();
+        subjectAndMarkForStudent4Group1.put("COMPUTER_SCIENCE", 7.0);
+        subjectAndMarkForStudent4Group1.put("CHEMISTRY", 5.0);
+        subjectAndMarkForStudent4Group1.put("PHYSICS", 9.0);
+        subjectAndMarkForStudent4Group1.put("MATHEMATICS", 3.0);
+
+        return subjectAndMarkForStudent4Group1;
+    }
+
+    public List<Student> getStudentListGroup1() throws EmptyListException {
 
         Student student1Group1 = new Student("Ivanov", "Ivan",
                 getSubjectAndMarkForStudent1Group1());
@@ -55,8 +67,10 @@ public class Database {
                 getSubjectAndMarkForStudent2Group1());
         Student student3Group1 = new Student("Sidorov", "Vladimir",
                 getSubjectAndMarkForStudent3Group1());
+        Student student4Group1 = new Student("Izrailov", "Azamat",
+                getSubjectAndMarkForStudent4Group1());
 
-        return asList(student1Group1, student2Group1, student3Group1);
+        return asList(student1Group1, student2Group1, student3Group1, student4Group1);
     }
 
     /**
@@ -96,7 +110,7 @@ public class Database {
         return subjectAndMarkForStudent3Group2;
     }
 
-    public List<Student> getStudentListGroup2() {
+    public List<Student> getStudentListGroup2() throws EmptyListException {
 
         Student student1Group2 = new Student("Isaenko", "Dmitry",
                 getSubjectAndMarkForStudent1Group2());
@@ -145,7 +159,7 @@ public class Database {
         return subjectAndMarkForStudent3Group3;
     }
 
-    public List<Student> getStudentListGroup3() {
+    public List<Student> getStudentListGroup3() throws EmptyListException {
 
         Student student1Group3 = new Student("Makarov", "Vasya",
                 getSubjectAndMarkForStudent1Group3());
@@ -161,7 +175,7 @@ public class Database {
      * Create groups list for faculty 1
      */
 
-    public List<Group> getGroupListFaculty1() {
+    public List<Group> getGroupListFaculty1() throws EmptyListException {
 
 
         Group group1Faculty1 = new Group(1, getStudentListGroup1());
@@ -208,7 +222,7 @@ public class Database {
         return subjectAndMarkForStudent3Group4;
     }
 
-    public List<Student> getStudentListGroup4() {
+    public List<Student> getStudentListGroup4() throws EmptyListException {
 
         Student student1Group4 = new Student("Balashevich", "Mihail",
                 getSubjectAndMarkForStudent1Group4());
@@ -257,7 +271,7 @@ public class Database {
         return subjectAndMarkForStudent3Group5;
     }
 
-    public List<Student> getStudentListGroup5() {
+    public List<Student> getStudentListGroup5() throws EmptyListException {
 
         Student student1Group5 = new Student("Taratin", "Daniil",
                 getSubjectAndMarkForStudent1Group5());
@@ -306,7 +320,7 @@ public class Database {
         return subjectAndMarkForStudent3Group6;
     }
 
-    public List<Student> getStudentListGroup6() {
+    public List<Student> getStudentListGroup6() throws EmptyListException {
 
         Student student1Group6 = new Student("Voevodin", "Ruslan",
                 getSubjectAndMarkForStudent1Group6());
@@ -322,7 +336,7 @@ public class Database {
      * Create groups list for faculty 2
      */
 
-    public List<Group> getGroupListFaculty2() {
+    public List<Group> getGroupListFaculty2() throws EmptyListException {
 
 
         Group group4Faculty2 = new Group(4, getStudentListGroup4());
@@ -369,7 +383,7 @@ public class Database {
         return subjectAndMarkForStudent3Group7;
     }
 
-    public List<Student> getStudentListGroup7() {
+    public List<Student> getStudentListGroup7() throws EmptyListException {
 
         Student student1Group7 = new Student("Demidovich", "Sasha",
                 getSubjectAndMarkForStudent1Group7());
@@ -418,7 +432,7 @@ public class Database {
         return subjectAndMarkForStudent3Group8;
     }
 
-    public List<Student> getStudentListGroup8() {
+    public List<Student> getStudentListGroup8() throws EmptyListException {
 
         Student student1Group8 = new Student("Shobohov", "Veniamin",
                 getSubjectAndMarkForStudent1Group8());
@@ -467,7 +481,7 @@ public class Database {
         return subjectAndMarkForStudent3Group9;
     }
 
-    public List<Student> getStudentListGroup9() {
+    public List<Student> getStudentListGroup9() throws EmptyListException {
 
         Student student1Group9 = new Student("Kolesnik", "Ilya",
                 getSubjectAndMarkForStudent1Group9());
@@ -483,7 +497,7 @@ public class Database {
      * Create groups list for faculty 3
      */
 
-    public List<Group> getGroupListFaculty3() {
+    public List<Group> getGroupListFaculty3() throws EmptyListException {
 
 
         Group group7Faculty3 = new Group(7, getStudentListGroup7());
@@ -497,7 +511,7 @@ public class Database {
      * Create faculties list for university
      */
 
-    public List<Faculty> getFacultyList() {
+    public List<Faculty> getFacultyList() throws EmptyListException {
 
         Faculty faculty1 = new Faculty("Automotive Faculty", getGroupListFaculty1());
         Faculty faculty2 = new Faculty("Mechanical and Technological Faculty", getGroupListFaculty2());
@@ -510,7 +524,7 @@ public class Database {
      * Create university
      */
 
-    public List<University> getUniversityList() {
+    public List<University> getUniversityList() throws EmptyListException {
 
         University university = new University("Belarusian National Technical University",
                 getFacultyList());

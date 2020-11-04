@@ -1,30 +1,24 @@
 package exceptions.mainTask.bean;
 
-import exceptions.mainTask.customExceptions.EmptyListException;
-import java.util.ArrayList;
+import exceptions.mainTask.enums.FacultyName;
 import java.util.List;
 
 public class Faculty {
 
-    private String nameOfTheFaculty;
-    private List<Group> groupsList = new ArrayList<>();
+    private FacultyName facultyName;
+    private List<Group> groupsList;
 
-    public Faculty(String nameOfTheFaculty, List<Group> groupsList) throws EmptyListException {
-        this.nameOfTheFaculty = nameOfTheFaculty;
+    public Faculty(FacultyName facultyName, List<Group> groupsList) {
+        this.facultyName = facultyName;
         this.groupsList = groupsList;
-
-        if(groupsList.isEmpty()) {
-            throw new EmptyListException("Faculties need to include at least one group, "
-                    + "size of group list: " + groupsList.size());
-        }
     }
 
-    public String getNameOfTheFaculty() {
-        return nameOfTheFaculty;
+    public FacultyName getFacultyName() {
+        return facultyName;
     }
 
-    public void setNameOfTheFaculty(String nameOfTheFaculty) {
-        this.nameOfTheFaculty = nameOfTheFaculty;
+    public void setFacultyName(FacultyName facultyName) {
+        this.facultyName = facultyName;
     }
 
     public List<Group> getGroupsList() {
@@ -38,7 +32,7 @@ public class Faculty {
     @Override
     public String toString() {
         return "Faculty{" +
-                "nameOfTheFaculty='" + nameOfTheFaculty + '\'' +
+                "facultyName=" + facultyName +
                 ", groupsList=" + groupsList +
                 '}';
     }

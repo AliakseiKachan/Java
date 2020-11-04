@@ -1,30 +1,24 @@
 package exceptions.mainTask.bean;
 
-import exceptions.mainTask.customExceptions.EmptyListException;
-import java.util.ArrayList;
+import exceptions.mainTask.enums.UniversityName;
 import java.util.List;
 
 public class University {
 
-    private String nameOfTheUniversity;
-    private List<Faculty> facultiesList = new ArrayList<>();
+    private UniversityName universityName;
+    private List<Faculty> facultiesList;
 
-    public University(String nameOfTheUniversity, List<Faculty> facultiesList) throws EmptyListException {
-        this.nameOfTheUniversity = nameOfTheUniversity;
+    public University(UniversityName universityName, List<Faculty> facultiesList) {
+        this.universityName = universityName;
         this.facultiesList = facultiesList;
-
-        if(facultiesList.isEmpty()) {
-            throw new EmptyListException("University need to include at least one faculty, "
-                    + "size of faculty list: " + facultiesList.size());
-        }
     }
 
-    public String getNameOfTheUniversity() {
-        return nameOfTheUniversity;
+    public UniversityName getUniversityName() {
+        return universityName;
     }
 
-    public void setNameOfTheUniversity(String nameOfTheUniversity) {
-        this.nameOfTheUniversity = nameOfTheUniversity;
+    public void setUniversityName(UniversityName universityName) {
+        this.universityName = universityName;
     }
 
     public List<Faculty> getFacultiesList() {
@@ -38,7 +32,8 @@ public class University {
     @Override
     public String toString() {
         return "University{" +
-                "nameOfTheUniversity='" + nameOfTheUniversity + '\'' +
+                "universityName=" + universityName +
+                ", facultiesList=" + facultiesList +
                 '}';
     }
 }

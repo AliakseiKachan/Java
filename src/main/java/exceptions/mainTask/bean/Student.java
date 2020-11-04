@@ -10,10 +10,9 @@ public class Student {
 
     private String lastName;
     private String firstName;
-    private Subject subject;
-    private HashMap<String, Double> subjectAndMark = new HashMap<>();
+    private HashMap<Subject, Double> subjectAndMark;
 
-    public Student(String lastName, String firstName, HashMap<String, Double> subjectAndMark)
+    public Student(String lastName, String firstName, HashMap<Subject, Double> subjectAndMark)
                     throws EmptyListException {
         this.lastName = lastName;
         this.firstName = firstName;
@@ -49,20 +48,12 @@ public class Student {
         this.firstName = firstName;
     }
 
-    public HashMap<String, Double> getSubjectAndMark() {
+    public HashMap<Subject, Double> getSubjectAndMark() {
         return subjectAndMark;
     }
 
-    public void setSubjectAndMark(HashMap<String, Double> subjectAndMark) {
+    public void setSubjectAndMark(HashMap<Subject, Double> subjectAndMark) {
         this.subjectAndMark = subjectAndMark;
-    }
-
-    public Subject getSubject() {
-        return subject;
-    }
-
-    public void setSubject(Subject subject) {
-        this.subject = subject;
     }
 
     @Override
@@ -70,7 +61,6 @@ public class Student {
         return "Student{" +
                 "lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", subject=" + subject +
                 ", subjectAndMark=" + subjectAndMark +
                 '}';
     }

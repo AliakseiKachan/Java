@@ -574,7 +574,7 @@ public class DatabaseCreator {
     public Optional<University> getUniversityByName(UniversityName universityName) throws EmptyListException {
 
         return getUniversityList().stream().filter(university -> university.getUniversityName()
-                .equals(UniversityName.BELARUSIAN_NATIONAL_TECHNICAL_UNIVERSITY)).findFirst();
+                .equals(universityName)).findFirst();
     }
 
     public List<University> getUniversityList() throws EmptyListException {

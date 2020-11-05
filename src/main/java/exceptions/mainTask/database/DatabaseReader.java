@@ -10,14 +10,14 @@ import exceptions.mainTask.enums.UniversityName;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-public class DatabaseReader {
+public class DatabaseReader implements IDatabaseReader {
 
-    private DatabaseCreator databaseCreator;
+    private DatabaseCreator databaseCreator = new DatabaseCreator();
 
-    public DatabaseReader(DatabaseCreator databaseCreator) {
-        this.databaseCreator = databaseCreator;
+    public DatabaseReader() {
     }
 
+    @Override
     public Optional<University> getUniversityByName(UniversityName universityName) throws EmptyListException {
 
         if(databaseCreator.getUniversityList().isEmpty()) {
@@ -32,6 +32,7 @@ public class DatabaseReader {
         } else throw new NoSuchElementException("University with this name not found: " + universityName);
     }
 
+    @Override
     public Optional<Faculty> getFacultyByName(FacultyName facultyName) throws EmptyListException {
 
         if(databaseCreator.getFacultyList().isEmpty()) {
@@ -46,6 +47,7 @@ public class DatabaseReader {
         } else throw new NoSuchElementException("Faculty with this name not found: " + facultyName);
     }
 
+    @Override
     public Optional<Group> getGroupByNumber(int number) throws EmptyListException {
 
         if(databaseCreator.getGroupList().isEmpty()) {
@@ -60,6 +62,7 @@ public class DatabaseReader {
         } else throw new NoSuchElementException("Group with this number not found: " + number);
     }
 
+    @Override
     public Optional<Student> getStudentByLastName(String lastName) throws EmptyListException {
 
         if(databaseCreator.getStudentsList().isEmpty()) {

@@ -1,7 +1,7 @@
 package exceptions.mainTask;
 
-import exceptions.mainTask.database.DatabaseCreator;
 import exceptions.mainTask.database.DatabaseReader;
+import exceptions.mainTask.database.IDatabaseReader;
 import exceptions.mainTask.enums.FacultyName;
 import exceptions.mainTask.enums.Subject;
 import exceptions.mainTask.customExceptions.EmptyListException;
@@ -29,17 +29,16 @@ public class Main {
 
     public static void main(String[] args) throws EmptyListException {
 
-        DatabaseCreator databaseCreator = new DatabaseCreator();
-        DatabaseReader databaseReader = new DatabaseReader(databaseCreator);
+        IDatabaseReader iDatabaseReader = new DatabaseReader();
         UniverUtils univerUtils = new UniverUtils();
 
-        System.out.println(univerUtils.getAverageMarkOfOneStudent(databaseReader.getStudentByLastName("Izrailov")));
+        System.out.println(univerUtils.getAverageMarkOfOneStudent(iDatabaseReader.getStudentByLastName("Izrailov")));
 
         System.out.println(univerUtils.getAverageMarkForSpecificSubjectInSpecificGroupAndAtSpecificFaculty
-                (databaseReader.getFacultyByName(FacultyName.INSTRUMENTATION_FACULTY),
-                        databaseReader.getGroupByNumber(8), Subject.PHYSICS));
+                (iDatabaseReader.getFacultyByName(FacultyName.INSTRUMENTATION_FACULTY),
+                        iDatabaseReader.getGroupByNumber(8), Subject.PHYSICS));
 
-        System.out.println(univerUtils.getAverageMarkForOneSubjectForEntireUniversity(databaseReader
+        System.out.println(univerUtils.getAverageMarkForOneSubjectForEntireUniversity(iDatabaseReader
                 .getUniversityByName(UniversityName.BELARUSIAN_NATIONAL_TECHNICAL_UNIVERSITY),
                         Subject.COMPUTER_SCIENCE));
     }

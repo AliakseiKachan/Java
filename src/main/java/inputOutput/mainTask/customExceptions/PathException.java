@@ -1,4 +1,4 @@
-package inputOutput.mainTask;
+package inputOutput.mainTask.customExceptions;
 
 public class PathException extends Exception {
 

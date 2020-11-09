@@ -1,5 +1,7 @@
-package inputOutput.mainTask;
+package inputOutput.mainTask.utils;
 
+import inputOutput.mainTask.customExceptions.PathException;
+import inputOutput.mainTask.enums.PropsName;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,7 @@ public class UtilsReader {
 
         if (file.isDirectory()) {
 
-            File outputIOTask = new File(propsReader.getPathToFile());
+            File outputIOTask = new File(propsReader.getProperty(PropsName.PATH_TO_FILE));
 
             if (outputIOTask.exists() && outputIOTask.isFile()) {
 

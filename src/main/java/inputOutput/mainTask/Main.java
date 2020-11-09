@@ -1,5 +1,9 @@
 package inputOutput.mainTask;
 
+import inputOutput.mainTask.customExceptions.PathException;
+import inputOutput.mainTask.enums.PropsName;
+import inputOutput.mainTask.utils.PropsReader;
+import inputOutput.mainTask.utils.UtilsReader;
 import java.io.File;
 
 /**
@@ -64,7 +68,7 @@ public class Main {
 
         UtilsReader utilsReader = new UtilsReader();
 
-        utilsReader.getTree(new File(propsReader.getPathToFolder()));
-        utilsReader.readFile(new File(propsReader.getPathToFile()));
+        utilsReader.getTree(new File(propsReader.getProperty(PropsName.PATH_TO_FOLDER)));
+        utilsReader.readFile(new File(propsReader.getProperty(PropsName.PATH_TO_FILE)));
     }
 }

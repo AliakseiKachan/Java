@@ -3,7 +3,7 @@ package inputOutput.mainTask;
 import inputOutput.mainTask.customExceptions.PathException;
 import inputOutput.mainTask.enums.PropsName;
 import inputOutput.mainTask.utils.PropsReader;
-import inputOutput.mainTask.utils.UtilsReader;
+import inputOutput.mainTask.utils.UtilsTask;
 import java.io.File;
 
 /**
@@ -65,10 +65,30 @@ public class Main {
     public static void main(String[] args) throws PathException {
 
         PropsReader propsReader = new PropsReader();
+        UtilsTask utilsTask = new UtilsTask();
 
-        UtilsReader utilsReader = new UtilsReader();
+        utilsTask.getTree(new File(propsReader.getProperty(PropsName.PATH_TO_FOLDER)),
+                utilsTask.initFileSystemReader(propsReader, PropsName.PATH_TO_FILE));
 
-        utilsReader.getTree(new File(propsReader.getProperty(PropsName.PATH_TO_FOLDER)));
-        utilsReader.readFile(new File(propsReader.getProperty(PropsName.PATH_TO_FILE)));
+        System.out.println("Number of folders: " + utilsTask.getNumberOfFolders(new File(propsReader
+                .getProperty(PropsName.PATH_TO_FILE)),
+                utilsTask.initScanner(new File(propsReader.getProperty(PropsName.PATH_TO_FILE)))));
+
+        System.out.println("Number of files: " + utilsTask.getNumberOfFiles(new File(propsReader
+                .getProperty(PropsName.PATH_TO_FILE)),
+                utilsTask.initScanner(new File(propsReader.getProperty(PropsName.PATH_TO_FILE)))));
+
+        System.out.println("Average number of files per folder: "
+                + Math.ceil((double) utilsTask.getNumberOfFiles(new File(propsReader
+                .getProperty(PropsName.PATH_TO_FILE)),
+                utilsTask.initScanner(new File(propsReader.getProperty(PropsName.PATH_TO_FILE))))
+                / utilsTask.getNumberOfFolders(new File(propsReader
+                .getProperty(PropsName.PATH_TO_FILE)),
+                utilsTask.initScanner(new File(propsReader.getProperty(PropsName.PATH_TO_FILE)))) * Math.pow(10, 2))
+                / Math.pow(10, 2));
+
+        System.out.println("Average file name length: " + utilsTask.getAverageFileNameLength(new File(propsReader
+                .getProperty(PropsName.PATH_TO_FILE)),
+                utilsTask.initScanner(new File(propsReader.getProperty(PropsName.PATH_TO_FILE)))));
     }
 }

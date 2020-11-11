@@ -14,48 +14,46 @@ public class DataHandler {
     private static final String END_OF_FILES_IN_FOLDER_SEPARATOR = "|";
 
     private PropsReader propsReader;
+    private File file;
     private PrintStream printStream;
 
     public DataHandler(PropsReader propsReader, Props outputFilePath) {
         this.propsReader = propsReader;
-        this.printStream = initFileSystemReader(outputFilePath);
+        this.file = new File(propsReader.getProperty(outputFilePath));
+        this.printStream = initFileSystemReader();
+
     }
 
-    public void writeStructureOfFoldersAndFilesToFile(Props pathToFolder)
-            throws PathException {
+    public void writeStructureOfFoldersAndFilesToFile(Props pathToFolder) throws PathException {
 
         writeStructureOfFoldersAndFilesToFile(new File(propsReader.getProperty(pathToFolder)));
     }
 
-    public void printNumberOfFolders(Props outputFilePath) throws PathException {
+    public void printNumberOfFolders() throws PathException {
 
-        printNumberOfFolders(new File(propsReader.getProperty(outputFilePath)),
-                initScanner(new File(propsReader.getProperty(outputFilePath))));
+        printNumberOfFolders(initScanner());
     }
 
-    public void printNumberOfFiles(Props outputFilePath) throws PathException {
+    public void printNumberOfFiles() throws PathException {
 
-        printNumberOfFiles(new File(propsReader.getProperty(outputFilePath)),
-                initScanner(new File(propsReader.getProperty(outputFilePath))));
+        printNumberOfFiles(initScanner());
     }
 
-    public void printAverageNumberOfFilesPerFolder(Props outputFilePath) throws PathException {
+    public void printAverageNumberOfFilesPerFolder() throws PathException {
 
-        printAverageNumberOfFilesPerFolder(new File(propsReader.getProperty(outputFilePath)),
-                initScanner(new File(propsReader.getProperty(outputFilePath))));
+        printAverageNumberOfFilesPerFolder(initScanner());
     }
 
-    public void printAverageFileNameLength(Props outputFilePath) throws PathException {
+    public void printAverageFileNameLength() throws PathException {
 
-        printAverageFileNameLength(new File(propsReader.getProperty(outputFilePath)),
-                initScanner(new File(propsReader.getProperty(outputFilePath))));
+        printAverageFileNameLength(initScanner());
     }
 
-    private PrintStream initFileSystemReader(Props props) {
+    private PrintStream initFileSystemReader() {
 
         try {
 
-            printStream = new PrintStream(new FileOutputStream(new File(propsReader.getProperty(props))));
+            printStream = new PrintStream(new FileOutputStream(file));
 
         } catch (FileNotFoundException e) {
 
@@ -99,7 +97,7 @@ public class DataHandler {
         }
     }
 
-    private Scanner initScanner(File file) {
+    private Scanner initScanner() {
 
         Scanner scanner = null;
 
@@ -115,7 +113,7 @@ public class DataHandler {
         return scanner;
     }
 
-    private void printNumberOfFolders(File file, Scanner scanner) throws PathException {
+    private void printNumberOfFolders(Scanner scanner) throws PathException {
 
         if (file.isFile() && file.getAbsolutePath().endsWith(".txt")) {
 
@@ -137,7 +135,7 @@ public class DataHandler {
         }
     }
 
-    private void printNumberOfFiles(File file, Scanner scanner) throws PathException {
+    private void printNumberOfFiles(Scanner scanner) throws PathException {
 
         if (file.isFile() && file.getAbsolutePath().endsWith(".txt")) {
 
@@ -159,7 +157,7 @@ public class DataHandler {
         }
     }
 
-    private void printAverageNumberOfFilesPerFolder(File file, Scanner scanner) throws PathException {
+    private void printAverageNumberOfFilesPerFolder(Scanner scanner) throws PathException {
 
         if (file.isFile() && file.getAbsolutePath().endsWith(".txt")) {
 
@@ -191,7 +189,7 @@ public class DataHandler {
         }
     }
 
-    private void printAverageFileNameLength(File file, Scanner scanner) throws PathException {
+    private void printAverageFileNameLength(Scanner scanner) throws PathException {
 
         if (file.isFile() && file.getAbsolutePath().endsWith(".txt")) {
 

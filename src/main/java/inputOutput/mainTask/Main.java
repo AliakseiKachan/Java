@@ -67,9 +67,9 @@ public class Main {
         DataHandler dataHandler = new DataHandler(propsReader, Props.PATH_TO_OUTPUT_FILE);
 
         dataHandler.writeStructureOfFoldersAndFilesToFile(Props.PATH_TO_FOLDER);
-        dataHandler.printNumberOfFolders(Props.PATH_TO_OUTPUT_FILE);
-        dataHandler.printNumberOfFiles(Props.PATH_TO_OUTPUT_FILE);
-        dataHandler.printAverageNumberOfFilesPerFolder(Props.PATH_TO_OUTPUT_FILE);
-        dataHandler.printAverageFileNameLength(Props.PATH_TO_OUTPUT_FILE);
+        dataHandler.printNumberOfFolders();
+        dataHandler.printNumberOfFiles();
+        dataHandler.printAverageNumberOfFilesPerFolder();
+        dataHandler.printAverageFileNameLength();
     }
 }

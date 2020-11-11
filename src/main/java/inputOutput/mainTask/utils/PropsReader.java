@@ -1,6 +1,6 @@
 package inputOutput.mainTask.utils;
 
-import inputOutput.mainTask.enums.PropsName;
+import inputOutput.mainTask.enums.Props;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,22 +8,20 @@ import java.util.Properties;
 
 public class PropsReader {
 
-    public static final String PATH_TO_PROPERTIES = "src/main/resources/props.properties";
+    private static final String PATH_TO_PROPERTIES = "src/main/resources/props.properties";
 
-    FileInputStream fileInputStream;
+    private final Properties properties = new Properties();
 
-    Properties properties = new Properties();
-
-    public String getProperty(PropsName propsName) {
+    public String getProperty(Props props) {
 
         String property = null;
 
         try {
 
-            fileInputStream = new FileInputStream(PATH_TO_PROPERTIES);
+            FileInputStream fileInputStream = new FileInputStream(PATH_TO_PROPERTIES);
             properties.load(fileInputStream);
 
-            property = properties.getProperty(propsName.toString());
+            property = properties.getProperty(props.toString());
 
         } catch (FileNotFoundException e) {
 

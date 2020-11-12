@@ -4,13 +4,14 @@ import java.util.concurrent.Semaphore;
 
 public class Port {
 
-    private int currentNumberOfContainersInPort;
+    public static int currentNumberOfContainersInPort;
     private int portContainersCapacity;
     private int numberOfPiers;
     private Semaphore port;
 
     public Port(int portContainersCapacity, int numberOfPiers) {
-        this.currentNumberOfContainersInPort = (int) (Math.random() * portContainersCapacity);
+//        this.currentNumberOfContainersInPort = (int) (Math.random() * portContainersCapacity);
+        this.currentNumberOfContainersInPort = portContainersCapacity / 2;
         this.portContainersCapacity = portContainersCapacity;
         this.numberOfPiers = numberOfPiers;
         this.port = new Semaphore(numberOfPiers);

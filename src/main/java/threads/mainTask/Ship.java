@@ -9,7 +9,8 @@ public class Ship extends Thread {
     private Semaphore port;
 
     public Ship(int shipContainersCapacity, Semaphore port) {
-        this.currentNumberOfContainersOnShip = (int) (Math.random() * shipContainersCapacity);
+//        this.currentNumberOfContainersOnShip = (int) (Math.random() * shipContainersCapacity);
+        this.currentNumberOfContainersOnShip = shipContainersCapacity / 2;
         this.shipContainersCapacity = shipContainersCapacity;
         this.port = port;
         this.start();
@@ -44,25 +45,20 @@ public class Ship extends Thread {
         System.out.println(this.getName() + " waiting for free pier in port");
     }
 
-    private void unloadingContainersToPort() {
+    private void unloadingContainersToPort() throws InterruptedException {
 
         System.out.println(this.getName() + " arrives to pier and start process of unloading containers to port");
 
-        try {
-            this.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        this.sleep(5000);
 
         while (currentNumberOfContainersOnShip != 0) {
 
-            System.out.println(this.getName() + " in process of unloading: " + --currentNumberOfContainersOnShip);
+            int containersInPortCounter = ++Port.currentNumberOfContainersInPort;
 
-            try {
-                this.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            System.out.println(this.getName() + " in process of unloading: " + currentNumberOfContainersOnShip--
+                    + ". Current number of containers in port: " + containersInPortCounter);
+
+            this.sleep(100);
         }
 
         if (currentNumberOfContainersOnShip == 0) {
@@ -71,7 +67,7 @@ public class Ship extends Thread {
         }
     }
 
-    private void loadingContainersToShip() {
+    private void loadingContainersToShip() throws InterruptedException {
 
         if (currentNumberOfContainersOnShip == 0 && currentNumberOfContainersOnShip < shipContainersCapacity) {
 
@@ -79,13 +75,13 @@ public class Ship extends Thread {
 
             while (currentNumberOfContainersOnShip != shipContainersCapacity) {
 
-                System.out.println(this.getName() + " in process of loading: " + ++currentNumberOfContainersOnShip);
+                int containersInPortCounter = --Port.currentNumberOfContainersInPort;
 
-                try {
-                    this.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                System.out.println(this.getName() + " in process of loading: " + currentNumberOfContainersOnShip++
+                        + ". Current number of containers in port: " + containersInPortCounter
+                );
+
+                this.sleep(100);
             }
         }
 

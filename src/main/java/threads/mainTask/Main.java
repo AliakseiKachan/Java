@@ -4,8 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Port port = new Port(1000, 5);
-        System.out.println("Current number of containers in port: " + port.getCurrentNumberOfContainersInPort() + "\n");
+        Port port = new Port(500, 5);
 
         for (int i = 0; i < 10; i++) {
 

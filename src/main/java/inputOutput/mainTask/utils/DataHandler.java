@@ -18,35 +18,15 @@ public class DataHandler {
     private PrintStream printStream;
 
     public DataHandler(PropsReader propsReader, Props outputFilePath) {
+
         this.propsReader = propsReader;
         this.file = new File(propsReader.getProperty(outputFilePath));
         this.printStream = initFileSystemReader();
-
     }
 
     public void writeStructureOfFoldersAndFilesToFile(Props pathToFolder) throws PathException {
 
         writeStructureOfFoldersAndFilesToFile(new File(propsReader.getProperty(pathToFolder)));
-    }
-
-    public void printNumberOfFolders() throws PathException {
-
-        printNumberOfFolders(initScanner());
-    }
-
-    public void printNumberOfFiles() throws PathException {
-
-        printNumberOfFiles(initScanner());
-    }
-
-    public void printAverageNumberOfFilesPerFolder() throws PathException {
-
-        printAverageNumberOfFilesPerFolder(initScanner());
-    }
-
-    public void printAverageFileNameLength() throws PathException {
-
-        printAverageFileNameLength(initScanner());
     }
 
     private PrintStream initFileSystemReader() {
@@ -97,25 +77,20 @@ public class DataHandler {
         }
     }
 
-    private Scanner initScanner() {
-
-        Scanner scanner = null;
-
-        try {
-
-            scanner = new Scanner(file.toPath());
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        }
-
-        return scanner;
-    }
-
-    private void printNumberOfFolders(Scanner scanner) throws PathException {
+    public void printNumberOfFolders() throws PathException {
 
         if (file.isFile() && file.getAbsolutePath().endsWith(".txt")) {
+
+            Scanner scanner = null;
+
+            try {
+
+                scanner = new Scanner(file.toPath());
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
 
             int folderCounter = 0;
 
@@ -135,9 +110,20 @@ public class DataHandler {
         }
     }
 
-    private void printNumberOfFiles(Scanner scanner) throws PathException {
+    public void printNumberOfFiles() throws PathException {
 
         if (file.isFile() && file.getAbsolutePath().endsWith(".txt")) {
+
+            Scanner scanner = null;
+
+            try {
+
+                scanner = new Scanner(file.toPath());
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
 
             int fileCounter = 0;
 
@@ -157,9 +143,20 @@ public class DataHandler {
         }
     }
 
-    private void printAverageNumberOfFilesPerFolder(Scanner scanner) throws PathException {
+    public void printAverageNumberOfFilesPerFolder() throws PathException {
 
         if (file.isFile() && file.getAbsolutePath().endsWith(".txt")) {
+
+            Scanner scanner = null;
+
+            try {
+
+                scanner = new Scanner(file.toPath());
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
 
             int folderCounter = 0;
             int fileCounter = 0;
@@ -189,9 +186,20 @@ public class DataHandler {
         }
     }
 
-    private void printAverageFileNameLength(Scanner scanner) throws PathException {
+    public void printAverageFileNameLength() throws PathException {
 
         if (file.isFile() && file.getAbsolutePath().endsWith(".txt")) {
+
+            Scanner scanner = null;
+
+            try {
+
+                scanner = new Scanner(file.toPath());
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
 
             String string;
             List<String> filesList = new ArrayList<>();

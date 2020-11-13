@@ -6,6 +6,9 @@ public class SemaphorePort {
 
     public static final int COUNT_PIERS = 5;
     public static final int COUNT_SHIPS = 10;
+
+    public static final int PORT_CONTAINERS_CAPACITY = 50;
+    public static int currentContainersNumberInPort = 10;
     /**
      * Piers control flags
      */
@@ -16,6 +19,9 @@ public class SemaphorePort {
     public static Semaphore semaphore = null;
 
     public static class Ship implements Runnable {
+
+        private final int SHIP_CONTAINERS_CAPACITY = 15;
+        private int currentContainersNumberOnShip = 7;
 
         private int shipNumber;
 
@@ -61,10 +67,49 @@ public class SemaphorePort {
                         }
                     }
                 }
-                /**
-                 * Time of unloading and loading
-                 */
-                Thread.sleep((int) (Math.random() * 10 + 1) * 1000);
+
+                for (int i = currentContainersNumberOnShip; i > 0; i--) {
+
+                    synchronized (controlPiers) {
+
+                        currentContainersNumberInPort++;
+                    }
+
+                    System.out.printf("\t\tship %d unload container %d. Containers in port: %d\n", shipNumber, i,
+                            currentContainersNumberInPort);
+
+                    currentContainersNumberOnShip--;
+
+                    if (currentContainersNumberOnShip == 0) {
+
+                        System.out.printf("\t\t\t\tship %d finished unloading\n", shipNumber);
+                    }
+
+                    Thread.sleep(100);
+                }
+
+                if (currentContainersNumberOnShip == 0) {
+
+                    for (int i = 0; i < SHIP_CONTAINERS_CAPACITY; i++) {
+
+                        synchronized (controlPiers) {
+
+                            currentContainersNumberInPort--;
+                        }
+
+                        System.out.printf("\t\tship %d load container %d. Containers in port: %d\n", shipNumber, i + 1,
+                                currentContainersNumberInPort);
+
+                        currentContainersNumberOnShip++;
+
+                        if (currentContainersNumberOnShip == SHIP_CONTAINERS_CAPACITY) {
+
+                            System.out.printf("\t\t\t\tship %d finished loading\n", shipNumber);
+                        }
+
+                        Thread.sleep(100);
+                    }
+                }
                 /**
                  * Leaving pier
                  */
@@ -76,7 +121,6 @@ public class SemaphorePort {
                  * Release pier
                  */
                 semaphore.release();
-                System.out.printf("Ship %d finished unloading and loading\n", shipNumber);
 
             } catch (InterruptedException e) {
 

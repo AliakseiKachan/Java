@@ -8,20 +8,20 @@ public class Main {
         /**
          * Determine number of piers
          */
-        SemaphorePort.CONTROL_PIERS = new boolean[SemaphorePort.COUNT_PIERS];
+        SemaphorePort.controlPiers = new boolean[SemaphorePort.COUNT_PIERS];
         /**
          * Piers control flags [true-free, false-busy]
          */
         for (int i = 0; i < SemaphorePort.COUNT_PIERS; i++) {
 
-            SemaphorePort.CONTROL_PIERS[i] = true;
+            SemaphorePort.controlPiers[i] = true;
         }
         /**
          * Define a semaphore with the following parameters:
          * number of permissions 5
          * queue flag fair = true (first in first out)
          */
-        SemaphorePort.SEMAPHORE = new Semaphore(SemaphorePort.CONTROL_PIERS.length, true);
+        SemaphorePort.semaphore = new Semaphore(SemaphorePort.controlPiers.length, true);
 
         for (int i = 1; i <= SemaphorePort.COUNT_SHIPS; i++) {
 

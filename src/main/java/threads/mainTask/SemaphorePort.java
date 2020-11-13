@@ -9,11 +9,11 @@ public class SemaphorePort {
     /**
      * Piers control flags
      */
-    public static boolean[] CONTROL_PIERS = null;
+    public static boolean[] controlPiers = null;
     /**
      * Semaphore
      */
-    public static Semaphore SEMAPHORE = null;
+    public static Semaphore semaphore = null;
 
     public static class Ship implements Runnable {
 
@@ -33,7 +33,7 @@ public class SemaphorePort {
                 /**
                  * Request for pier availability
                  */
-                SEMAPHORE.acquire();
+                semaphore.acquire();
 
                 System.out.printf("\t\t\t\tthe crew of the ship %d requests a free pier\n", shipNumber);
 
@@ -41,21 +41,22 @@ public class SemaphorePort {
                 /**
                  * Request the availability of a free pier and going to it
                  */
-                synchronized (CONTROL_PIERS) {
+                synchronized (controlPiers) {
 
                     for (int i = 0; i < COUNT_PIERS; i++) {
                         /**
                          * Are there free piers?
                          */
-                        if (CONTROL_PIERS[i]) {
+                        if (controlPiers[i]) {
                             /**
                              * Take a pier
                              */
-                            CONTROL_PIERS[i] = false;
+                            controlPiers[i] = false;
 
                             controlNum = i;
 
-                            System.out.printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tship %d arrived to pier %d.\n", shipNumber, i);
+                            System.out.printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tship %d arrived to pier %d\n",
+                                    shipNumber, i + 1);
                             break;
                         }
                     }
@@ -67,14 +68,14 @@ public class SemaphorePort {
                 /**
                  * Leaving pier
                  */
-                synchronized (CONTROL_PIERS) {
+                synchronized (controlPiers) {
 
-                    CONTROL_PIERS[controlNum] = true;
+                    controlPiers[controlNum] = true;
                 }
                 /**
                  * Release pier
                  */
-                SEMAPHORE.release();
+                semaphore.release();
                 System.out.printf("Ship %d finished unloading and loading\n", shipNumber);
 
             } catch (InterruptedException e) {

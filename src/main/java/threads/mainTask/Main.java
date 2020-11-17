@@ -1,7 +1,5 @@
 package threads.mainTask;
 
-import java.util.concurrent.Semaphore;
-
 /**
  * Create a console multithreaded application.
  * Use the features provided by the java.util.concurrent package.
@@ -20,18 +18,20 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        SemaphorePort.controlPiers = new boolean[SemaphorePort.COUNT_PIERS];
+        Port port = new Port();
+        Ship ship = new Ship();
 
-        for (int i = 0; i < SemaphorePort.COUNT_PIERS; i++) {
+        for (int i = 0; i < port.getCountPiers(); i++) {
 
-            SemaphorePort.controlPiers[i] = true;
+            port.getControlPiers()[i] = true;
         }
 
-        SemaphorePort.semaphore = new Semaphore(SemaphorePort.controlPiers.length, true);
+        port.getSemaphore();
 
-        for (int i = 1; i <= SemaphorePort.COUNT_SHIPS; i++) {
+        for (int i = 1; i <= ship.getCountShips(); i++) {
 
-            new Thread(new SemaphorePort.Ship(i)).start();
+            new Thread(new Ship(i, port)).start();
+
             Thread.sleep(500);
         }
     }

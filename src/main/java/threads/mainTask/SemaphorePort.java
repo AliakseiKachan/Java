@@ -9,8 +9,8 @@ public class SemaphorePort {
     public static boolean[] controlPiers = null;
     public static Semaphore semaphore = null;
 
-    private static final int PORT_CONTAINERS_CAPACITY = 50;
-    private static int currentContainersNumberInPort = 25;
+    private static final int PORT_CONTAINERS_CAPACITY = 100;
+    private static int currentContainersNumberInPort = 50;
 
     public static class Ship implements Runnable {
 
@@ -27,13 +27,14 @@ public class SemaphorePort {
         @Override
         public void run() {
 
-            System.out.printf("Ship %d arrived to port\n", shipNumber);
+            System.out.printf(ConsoleColors.BLUE_BOLD + "Ship %d arrived to port\n" + ConsoleColors.RESET, shipNumber);
 
             try {
 
                 semaphore.acquire();
 
-                System.out.printf("The crew of the ship %d requests a free pier\n", shipNumber);
+                System.out.printf(ConsoleColors.BLUE_UNDERLINED + "The crew of the ship %d requests a free pier\n"
+                        + ConsoleColors.RESET, shipNumber);
 
                 int controlNum = 0;
 
@@ -47,7 +48,8 @@ public class SemaphorePort {
 
                             controlNum = i;
 
-                            System.out.printf("Ship %d arrived to pier %d\n", shipNumber, i + 1);
+                            System.out.printf(ConsoleColors.CYAN_BOLD + "Ship %d arrived to pier %d\n"
+                                    + ConsoleColors.RESET, shipNumber, i + 1);
 
                             break;
                         }
@@ -56,11 +58,75 @@ public class SemaphorePort {
 
                 if (currentContainersNumberOnShip[element] != 0) {
 
-                    unloadShip();
+                    for (int i = currentContainersNumberOnShip[element]; i > 0; i--) {
+
+                        while (currentContainersNumberInPort == PORT_CONTAINERS_CAPACITY) {
+
+                            System.out.printf("Port overloaded. Ship %d waiting while other ships load containers." +
+                                    " Containers in port: %d\n", shipNumber, currentContainersNumberInPort);
+
+                            Thread.sleep(3000);
+                            semaphore.release(1);
+                        }
+
+                        synchronized (controlPiers) {
+
+                            currentContainersNumberInPort++;
+                        }
+
+                        System.out.printf(ConsoleColors.GREEN_UNDERLINED
+                                        + "Ship %d unload container %d. Containers in port: %d\n"
+                                        + ConsoleColors.RESET, shipNumber, currentContainersNumberOnShip[element],
+                                currentContainersNumberInPort);
+
+                        currentContainersNumberOnShip[element]--;
+
+                        Thread.sleep(100);
+
+                        if (currentContainersNumberOnShip[element] == 0) {
+
+                            System.out.printf(ConsoleColors.GREEN_BOLD_BRIGHT + "Ship %d finished unloading\n"
+                                    + ConsoleColors.RESET, shipNumber);
+                        }
+
+                        Thread.sleep(1000);
+                    }
 
                 } else {
 
-                    loadShip();
+                    for (int i = 0; i < SHIP_CONTAINERS_CAPACITY; i++) {
+
+                        while (currentContainersNumberInPort == 0) {
+
+                            System.out.printf("Port is empty. Ship %d waiting while other ships unload containers." +
+                                    " Containers in port: %d\n", shipNumber, currentContainersNumberInPort);
+
+                            Thread.sleep(3000);
+                            semaphore.release(1);
+                        }
+
+                        synchronized (controlPiers) {
+
+                            currentContainersNumberInPort--;
+                        }
+
+                        System.out.printf(ConsoleColors.RED_UNDERLINED
+                                        + "Ship %d load container %d. Containers in port: %d\n"
+                                        + ConsoleColors.RESET, shipNumber, currentContainersNumberOnShip[element] + 1,
+                                currentContainersNumberInPort);
+
+                        currentContainersNumberOnShip[element]++;
+
+                        Thread.sleep(100);
+
+                        if (currentContainersNumberOnShip[element] == SHIP_CONTAINERS_CAPACITY) {
+
+                            System.out.printf(ConsoleColors.RED_BOLD_BRIGHT + "Ship %d finished loading\n"
+                                    + ConsoleColors.RESET, shipNumber);
+                        }
+
+                        Thread.sleep(1000);
+                    }
                 }
 
                 synchronized (controlPiers) {
@@ -73,70 +139,6 @@ public class SemaphorePort {
             } catch (InterruptedException e) {
 
                 e.printStackTrace();
-            }
-        }
-
-        public void unloadShip() throws InterruptedException {
-
-            for (int i = currentContainersNumberOnShip[element]; i > 0; i--) {
-
-                while (currentContainersNumberInPort == PORT_CONTAINERS_CAPACITY) {
-
-                    System.out.printf("Port overloaded. Ship %d waiting while other ships load containers." +
-                            " Containers in port: %d\n", shipNumber, currentContainersNumberInPort);
-
-                    Thread.sleep(3000);
-                    semaphore.release(1);
-                }
-
-                synchronized (controlPiers) {
-
-                    currentContainersNumberInPort++;
-                }
-
-                System.out.printf("Ship %d unload container %d. Containers in port: %d\n", shipNumber,
-                        currentContainersNumberOnShip[element], currentContainersNumberInPort);
-
-                currentContainersNumberOnShip[element]--;
-
-                if (currentContainersNumberOnShip[element] == 0) {
-
-                    System.out.printf("Ship %d finished unloading\n", shipNumber);
-                }
-
-                Thread.sleep(1000);
-            }
-        }
-
-        public void loadShip() throws InterruptedException {
-
-            for (int i = 0; i < SHIP_CONTAINERS_CAPACITY; i++) {
-
-                while (currentContainersNumberInPort == 0) {
-
-                    System.out.printf("Port is empty. Ship %d waiting while other ships unload containers." +
-                            " Containers in port: %d\n", shipNumber, currentContainersNumberInPort);
-
-                    Thread.sleep(3000);
-                    semaphore.release(1);
-                }
-
-                synchronized (controlPiers) {
-
-                    currentContainersNumberInPort--;
-                }
-
-                System.out.printf("Ship %d load container %d. Containers in port: %d\n", shipNumber,
-                        currentContainersNumberOnShip[element] + 1, currentContainersNumberInPort);
-
-                currentContainersNumberOnShip[element]++;
-
-                if (currentContainersNumberOnShip[element] == SHIP_CONTAINERS_CAPACITY) {
-
-                    System.out.printf("Ship %d finished loading\n", shipNumber);
-                }
-
-                Thread.sleep(1000);
             }
         }
     }

@@ -6,15 +6,13 @@ public class Ship implements Runnable {
     private int[] currentContainersNumberOnShip = {0, 10};
     private int element = (int) Math.floor(Math.random() * currentContainersNumberOnShip.length);
     private int shipNumber;
-    private Port port;
 
     public Ship() {
     }
 
-    public Ship(int shipNumber, Port port) {
+    public Ship(int shipNumber) {
 
         this.shipNumber = shipNumber;
-        this.port = port;
     }
 
     public int getCountShips() {
@@ -57,7 +55,7 @@ public class Ship implements Runnable {
 
                 for (int i = currentContainersNumberOnShip[element]; i > 0; i--) {
 
-                    while (Port.currentContainersNumberInPort == port.getPortContainersCapacity()) {
+                    while (Port.currentContainersNumberInPort == Port.portContainersCapacity) {
 
                         System.out.printf("Port overloaded. Ship %d waiting while other ships load containers." +
                                 " Containers in port: %d\n", shipNumber, Port.currentContainersNumberInPort);

@@ -20,7 +20,6 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Port port = new Port();
         Ship ship = new Ship();
 
         for (int i = 0; i < Port.countPiers; i++) {
@@ -32,7 +31,7 @@ public class Main {
 
         for (int i = 1; i <= ship.getCountShips(); i++) {
 
-            new Thread(new Ship(i, port)).start();
+            new Thread(new Ship(i)).start();
 
             Thread.sleep(500);
         }

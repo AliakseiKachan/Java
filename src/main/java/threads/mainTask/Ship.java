@@ -33,13 +33,13 @@ public class Ship implements Runnable {
 
             int controlNum = 0;
 
-            synchronized (Port.controlPiers) {
+            synchronized (Port.CONTROL_PIERS) {
 
-                for (int i = 0; i < Port.countPiers; i++) {
+                for (int i = 0; i < Port.COUNT_PIERS; i++) {
 
-                    if (Port.controlPiers[i]) {
+                    if (Port.CONTROL_PIERS[i]) {
 
-                        Port.controlPiers[i] = false;
+                        Port.CONTROL_PIERS[i] = false;
 
                         controlNum = i;
 
@@ -55,7 +55,7 @@ public class Ship implements Runnable {
 
                 for (int i = currentContainersNumberOnShip[element]; i > 0; i--) {
 
-                    while (Port.currentContainersNumberInPort == Port.portContainersCapacity) {
+                    while (Port.currentContainersNumberInPort == Port.PORT_CONTAINERS_CAPACITY) {
 
                         System.out.printf("Port overloaded. Ship %d waiting while other ships load containers." +
                                 " Containers in port: %d\n", shipNumber, Port.currentContainersNumberInPort);
@@ -64,7 +64,7 @@ public class Ship implements Runnable {
                         Port.semaphore.release(1);
                     }
 
-                    synchronized (Port.controlPiers) {
+                    synchronized (Port.CONTROL_PIERS) {
 
                         Port.currentContainersNumberInPort++;
                     }
@@ -100,7 +100,7 @@ public class Ship implements Runnable {
                         Port.semaphore.release(1);
                     }
 
-                    synchronized (Port.controlPiers) {
+                    synchronized (Port.CONTROL_PIERS) {
 
                         Port.currentContainersNumberInPort--;
                     }
@@ -124,9 +124,9 @@ public class Ship implements Runnable {
                 }
             }
 
-            synchronized (Port.controlPiers) {
+            synchronized (Port.CONTROL_PIERS) {
 
-                Port.controlPiers[controlNum] = true;
+                Port.CONTROL_PIERS[controlNum] = true;
             }
 
             Port.semaphore.release();

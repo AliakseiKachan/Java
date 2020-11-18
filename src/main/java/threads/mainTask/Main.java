@@ -22,12 +22,12 @@ public class Main {
 
         Ship ship = new Ship();
 
-        for (int i = 0; i < Port.countPiers; i++) {
+        for (int i = 0; i < Port.COUNT_PIERS; i++) {
 
-            Port.controlPiers[i] = true;
+            Port.CONTROL_PIERS[i] = true;
         }
 
-        Port.semaphore = new Semaphore(Port.countPiers, true);
+        Port.semaphore = new Semaphore(Port.COUNT_PIERS, true);
 
         for (int i = 1; i <= ship.getCountShips(); i++) {
 

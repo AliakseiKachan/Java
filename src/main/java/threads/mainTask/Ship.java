@@ -28,20 +28,20 @@ public class Ship implements Runnable {
 
         try {
 
-            port.getSemaphore().acquire();
+            Port.semaphore.acquire();
 
             System.out.printf(ConsoleColors.BLUE_UNDERLINED + "The crew of the ship %d requests a free pier\n"
                     + ConsoleColors.RESET, shipNumber);
 
             int controlNum = 0;
 
-            synchronized (port.getControlPiers()) {
+            synchronized (Port.controlPiers) {
 
-                for (int i = 0; i < port.getCountPiers(); i++) {
+                for (int i = 0; i < Port.countPiers; i++) {
 
-                    if (port.getControlPiers()[i]) {
+                    if (Port.controlPiers[i]) {
 
-                        port.getControlPiers()[i] = false;
+                        Port.controlPiers[i] = false;
 
                         controlNum = i;
 
@@ -63,10 +63,10 @@ public class Ship implements Runnable {
                                 " Containers in port: %d\n", shipNumber, Port.currentContainersNumberInPort);
 
                         Thread.sleep(3000);
-                        port.getSemaphore().release(1);
+                        Port.semaphore.release(1);
                     }
 
-                    synchronized (port.getControlPiers()) {
+                    synchronized (Port.controlPiers) {
 
                         Port.currentContainersNumberInPort++;
                     }
@@ -99,10 +99,10 @@ public class Ship implements Runnable {
                                 " Containers in port: %d\n", shipNumber, Port.currentContainersNumberInPort);
 
                         Thread.sleep(3000);
-                        port.getSemaphore().release(1);
+                        Port.semaphore.release(1);
                     }
 
-                    synchronized (port.getControlPiers()) {
+                    synchronized (Port.controlPiers) {
 
                         Port.currentContainersNumberInPort--;
                     }
@@ -126,12 +126,12 @@ public class Ship implements Runnable {
                 }
             }
 
-            synchronized (port.getControlPiers()) {
+            synchronized (Port.controlPiers) {
 
-                port.getControlPiers()[controlNum] = true;
+                Port.controlPiers[controlNum] = true;
             }
 
-            port.getSemaphore().release();
+            Port.semaphore.release();
 
         } catch (InterruptedException e) {
 
